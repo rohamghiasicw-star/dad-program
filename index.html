@@ -102,7 +102,7 @@ button,input{font-family:inherit;font-size:inherit;color:inherit}
 .wkbar .nm{font-size:14px;color:var(--ink2);font-weight:600}
 .finishb{background:var(--acc);color:#0C0C0D;border:0;border-radius:0;padding:9px 15px;font-weight:700;font-size:14px;cursor:pointer}
 
-.exblock{padding:26px 0}
+.exblock{padding:22px 0}
 .exhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:4px}
 .exhead .nm{font-size:17.5px;font-weight:700;letter-spacing:-.01em}
 .exhead .vol{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--ink3);white-space:nowrap}
@@ -114,11 +114,11 @@ button,input{font-family:inherit;font-size:inherit;color:inherit}
 .grid th{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;
   color:var(--ink3);font-weight:500;text-align:left;padding:0 0 8px}
 .grid th.c,.grid td.c{text-align:center}
-.grid td{padding:6px 0}
+.grid td{padding:3px 0}
 .grid .setn{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:var(--ink2);width:34px}
 .grid .prev{font-family:'JetBrains Mono',monospace;font-size:13.5px;color:var(--ink3);width:78px}
 .grid .prev.has{color:var(--ink2)}
-.grid input{width:100%;background:var(--surface);border:1px solid transparent;border-radius:0;padding:12px 4px;
+.grid input{width:100%;background:var(--surface);border:1px solid transparent;border-radius:0;padding:10px 4px;
   font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:500;text-align:center;outline:none}
 .grid input:focus{border-color:var(--acc);background:var(--raise)}
 .grid input::placeholder{color:#4A4A52}
@@ -369,32 +369,32 @@ const MONTHS = [
    { id:"Day B", focus:"Squat \u00b7 Hips \u00b7 Bench + Row", ex:[
      ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
      ["Barbell Squat","Bar over midfoot, hips and chest rise together",3,"6\u20138","A",105,"Barbell","3"],
-     ["DB Hip Thrust","Slot 2 so it gets a fresh effort",3,"10\u201312","A",105,"Bench","2"],
+     ["DB Hip Thrust","Shoulders on the bench, drive through the heels",3,"10\u201312","A",105,"Bench","2"],
      ["Barbell Bench Press","Controlled, do not bounce it",3,"6\u201310","B1",0,"Barbell + bench","3"],
      ["Chest-Supported DB Row","Second bench ~30\u00b0, chest on the pad",3,"10\u201312","B2",75,"Incline bench","2"],
      ["Seated DB Shoulder Press","Back supported",2,"10\u201312","C1",0,"Bench + dumbbells","2"],
      ["Band Pull-apart","Rear delts. Do not shrug",2,"15\u201320","C2",60,"Bands","1"]]},
    { id:"Day C", focus:"Pull-ups first \u00b7 Legs \u00b7 Calves", ex:[
      ["Treadmill warm-up","Easy pace, 5 min",1,"5 min","W",0,"Treadmill",""],
-     ["Band-assisted Pull-ups","FIRST while fresh. Thinner band, not more reps",3,"6\u201310","A",105,"Pull-up bar","2"],
+     ["Band-assisted Pull-ups","Chest to the bar, control the way down",3,"6\u201310","A",105,"Pull-up bar","2"],
      ["DB Step-ups","Whole foot on the bench, drive the heel, fast up",3,"8\u201310 each","A",105,"Bench + dumbbells","2"],
      ["Flat DB Bench Press","Lie back on the same bench",3,"8\u201312","B1",0,"Bench + dumbbells","2"],
-     ["Seated Leg Curl","Second hamstring day of the week",3,"12\u201315","B2",75,"Leg machine","1"],
+     ["Seated Leg Curl","Sit tall, hips flexed, 3 seconds down",3,"12\u201315","B2",75,"Leg machine","1"],
      ["Standing DB Calf Raise","Toes on a plate, pause in the stretch",2,"12\u201315 each","C1",0,"Dumbbells","0\u20131"],
      ["Chest-Supported Rear Delt Raise","Bench near vertical, protract, do not squeeze blades",2,"12\u201320","C2",60,"Incline bench","0\u20131"]]}
  ]},
  { id:"Month 2", weeks:"Weeks 5\u20138", rir:"Same lifts, more load. Compounds 2 RIR.", days:[
    { id:"Day A", focus:"Incline Press \u00b7 Split Squat \u00b7 Row", ex:[
      ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
-     ["Low Incline DB Press","Same lift, heavier than Month 1",3,"8\u201310","A",105,"Bench + dumbbells","2"],
-     ["DB Split Squat","Add load before adding reps now",3,"8\u201310 each","A",105,"Bench + dumbbells","2"],
+     ["Low Incline DB Press","Press along the collarbone line",3,"8\u201310","A",105,"Bench + dumbbells","2"],
+     ["DB Split Squat","Front heel down, torso tall",3,"8\u201310 each","A",105,"Bench + dumbbells","2"],
      ["Seated Leg Curl","Hips flexed, 3 seconds down",3,"10\u201312","B1",0,"Leg machine","1"],
      ["One-arm DB Row","3 sets PER SIDE",3,"8\u201310 per side","B2",75,"Bench + dumbbells","2"],
      ["DB Curl","Strict",2,"10\u201312","C1",0,"Dumbbells","1"],
      ["EZ-Bar Overhead Triceps Ext","Arms set behind the head",2,"10\u201312","C2",60,"EZ bar","1"]]},
    { id:"Day B", focus:"Squat \u00b7 Hips \u00b7 Bench + Row", ex:[
      ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
-     ["Barbell Squat","Add 5 lb, not 10, when you can",3,"6\u20138","A",105,"Barbell","2"],
+     ["Barbell Squat","Bar over midfoot, hips and chest rise together",3,"6\u20138","A",105,"Barbell","2"],
      ["DB Hip Thrust","Squeeze hard at the top",3,"10\u201312","A",105,"Bench","2"],
      ["Barbell Bench Press","Heaviest press of the week",3,"6\u20138","B1",0,"Barbell + bench","2"],
      ["Chest-Supported DB Row","Chest stays on the pad",3,"8\u201312","B2",75,"Incline bench","2"],
@@ -402,25 +402,25 @@ const MONTHS = [
      ["Band Pull-apart","Rear delts",2,"15\u201320","C2",60,"Bands","1"]]},
    { id:"Day C", focus:"Pull-ups first \u00b7 Legs \u00b7 Calves", ex:[
      ["Treadmill warm-up","Easy pace, 5 min",1,"5 min","W",0,"Treadmill",""],
-     ["Band-assisted Pull-ups","Step down a band thickness when you hit 10s",3,"6\u201310","A",105,"Pull-up bar","2"],
+     ["Band-assisted Pull-ups","Chest to the bar, control the way down",3,"6\u201310","A",105,"Pull-up bar","2"],
      ["DB Step-ups","Fast up, controlled down",3,"8\u201310 each","A",105,"Bench + dumbbells","2"],
      ["Flat DB Bench Press","Same bench",3,"8\u201310","B1",0,"Bench + dumbbells","2"],
-     ["Seated Leg Curl","Second hamstring day",3,"10\u201312","B2",75,"Leg machine","1"],
+     ["Seated Leg Curl","Sit tall, hips flexed, 3 seconds down",3,"10\u201312","B2",75,"Leg machine","1"],
      ["Standing DB Calf Raise","Pause in the stretch",2,"12\u201315 each","C1",0,"Dumbbells","0\u20131"],
      ["Chest-Supported Rear Delt Raise","Protract, do not squeeze blades",2,"12\u201320","C2",60,"Incline bench","0\u20131"]]}
  ]},
  { id:"Month 3", weeks:"Weeks 9\u201312", rir:"Same lifts again. Compounds 1\u20132 RIR. Push it.", days:[
    { id:"Day A", focus:"Incline Press \u00b7 Split Squat \u00b7 Row", ex:[
      ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
-     ["Low Incline DB Press","Heaviest it has been",3,"8\u201310","A",105,"Bench + dumbbells","1\u20132"],
-     ["DB Split Squat","3 sec down only if the load is stuck",3,"8\u201310 each","A",105,"Bench + dumbbells","1\u20132"],
+     ["Low Incline DB Press","Press along the collarbone line",3,"8\u201310","A",105,"Bench + dumbbells","1\u20132"],
+     ["DB Split Squat","Front heel down, 3 seconds down",3,"8\u201310 each","A",105,"Bench + dumbbells","1\u20132"],
      ["Seated Leg Curl","3 seconds down",3,"10\u201312","B1",0,"Leg machine","1"],
      ["One-arm DB Row","3 sets PER SIDE",3,"8\u201310 per side","B2",75,"Bench + dumbbells","1\u20132"],
      ["DB Curl","Strict",2,"10\u201312","C1",0,"Dumbbells","0\u20131"],
      ["EZ-Bar Overhead Triceps Ext","Arms behind the head",2,"10\u201312","C2",60,"EZ bar","0\u20131"]]},
    { id:"Day B", focus:"Squat \u00b7 Hips \u00b7 Bench + Row", ex:[
      ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
-     ["Barbell Squat","Best set of the block",3,"6\u20138","A",105,"Barbell","1\u20132"],
+     ["Barbell Squat","Bar over midfoot, hips and chest rise together",3,"6\u20138","A",105,"Barbell","1\u20132"],
      ["DB Hip Thrust","2 sec pause at the top",3,"10\u201312","A",105,"Bench","1\u20132"],
      ["Barbell Bench Press","Heaviest lift of the week",3,"6\u20138","B1",0,"Barbell + bench","1\u20132"],
      ["Chest-Supported DB Row","Chest on the pad",3,"8\u201312","B2",75,"Incline bench","1\u20132"],
@@ -428,10 +428,10 @@ const MONTHS = [
      ["Band Pull-apart","Rear delts",2,"15\u201320","C2",60,"Bands","0\u20131"]]},
    { id:"Day C", focus:"Pull-ups first \u00b7 Legs \u00b7 Calves", ex:[
      ["Treadmill warm-up","Easy pace, 5 min",1,"5 min","W",0,"Treadmill",""],
-     ["Band-assisted Pull-ups","Least band assistance of the block",3,"6\u201310","A",105,"Pull-up bar","1\u20132"],
+     ["Band-assisted Pull-ups","Chest to the bar, control the way down",3,"6\u201310","A",105,"Pull-up bar","1\u20132"],
      ["DB Step-ups","Fast up, 3 sec down",3,"8\u201310 each","A",105,"Bench + dumbbells","1\u20132"],
      ["Flat DB Bench Press","Same bench",3,"8\u201310","B1",0,"Bench + dumbbells","1\u20132"],
-     ["Seated Leg Curl","Second hamstring day",3,"10\u201312","B2",75,"Leg machine","0\u20131"],
+     ["Seated Leg Curl","Sit tall, hips flexed, 3 seconds down",3,"10\u201312","B2",75,"Leg machine","0\u20131"],
      ["Standing DB Calf Raise","Pause in the stretch",2,"12\u201315 each","C1",0,"Dumbbells","0"],
      ["Chest-Supported Rear Delt Raise","Protract, do not squeeze blades",2,"12\u201320","C2",60,"Incline bench","0"]]}
  ]}
