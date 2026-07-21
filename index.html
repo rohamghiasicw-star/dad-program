@@ -17,12 +17,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --bg:#0C0C0D; --surface:#121214; --raise:#18181B; --line:#232327; --line2:#33333A;
+  --bg:#0C0C0D; --surface:#121214; --raise:#141312; --line:#232327; --line2:#33333A;
   --ink:#F2F2EF; --ink2:#9C9CA4; --ink3:#66666E;
-  --acc:#E4B942;        /* used sparingly: active state only */
-  --ok:#4ADE80; --warn:#F87171;
+  --acc:#E4B942;        /* earned only: a logged set, a live timer */
+  --flag:#C9462C;
+  --t1:11px; --t2:13px; --t3:15px; --t4:19px; --t5:26px; --t6:40px;
+  --u:6px; --hair:1px solid var(--line2);
 }
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+*{box-sizing:border-box;margin:0;padding:0;border-radius:0;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg);color:var(--ink);font-family:'Archivo',system-ui,sans-serif;font-size:16px;
   line-height:1.45;-webkit-font-smoothing:antialiased;padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 button,input{font-family:inherit;font-size:inherit;color:inherit}
@@ -30,7 +32,11 @@ button,input{font-family:inherit;font-size:inherit;color:inherit}
 .blk{font-family:'Archivo Black',sans-serif;letter-spacing:-.02em}
 .wrap{max-width:600px;margin:0 auto;padding:0 18px}
 .hide{display:none !important}
-.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+.eyebrow,.lbl h2,.metarow .k,.restbar .lab,.sstag,.fs-body h4,details.more summary{
+  font-family:'JetBrains Mono',monospace;font-size:var(--t1);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink3);font-weight:500}
+.grid th{font-family:'JetBrains Mono',monospace;font-size:var(--t1);letter-spacing:0;text-transform:none;
+  color:var(--ink3);font-weight:500;text-align:left;padding:0 0 8px}
 
 /* ---------- ONBOARDING ---------- */
 #onboard{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
@@ -43,27 +49,26 @@ button,input{font-family:inherit;font-size:inherit;color:inherit}
   font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:500;padding:8px 2px;outline:none}
 .obin:focus{border-color:var(--acc)}
 .obin::placeholder{color:#3A3A40}
-.obunits{display:flex;gap:0;border:1px solid var(--line2);border-radius:0;margin-top:6px}
-.obunits button{flex:1;background:transparent;border:0;color:var(--ink2);font-weight:600;padding:15px;cursor:pointer}
-.obunits button+button{border-left:1px solid var(--line2)}
+.obunits{display:flex;gap:10px;margin-top:6px}
+.obunits button{flex:1;background:transparent;border:var(--hair);color:var(--ink2);font-weight:600;padding:18px;cursor:pointer}
 .obunits button.on{background:var(--acc);color:#0C0C0D}
-.obnext{width:100%;margin-top:32px;background:var(--acc);color:#0C0C0D;border:0;border-radius:0;padding:19px;
-  font-weight:700;font-size:16px;cursor:pointer}
-.oberr{color:var(--warn);font-size:14px;margin-top:10px;min-height:18px}
+.obnext{width:100%;margin-top:32px;background:transparent;color:var(--ink);border:2px solid var(--ink);
+  padding:18px;font-weight:700;font-size:var(--t3);cursor:pointer}
+.obnext:active{background:var(--ink);color:var(--bg)}
+.oberr{color:var(--flag);font-size:14px;margin-top:10px;min-height:18px}
 
 /* ---------- TOP BAR ---------- */
 .bar{position:sticky;top:0;z-index:30;background:rgba(12,12,13,.94);backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
 .bar-in{display:flex;align-items:center;justify-content:space-between;height:52px}
 .bar .l{display:flex;align-items:baseline;gap:9px}
-.bar .mk{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;color:var(--acc);letter-spacing:.02em}
+.bar .mk{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:var(--t2);color:var(--ink3);letter-spacing:.02em}
 .bar .ttl{font-weight:600;font-size:15px}
-.ghost{background:transparent;border:0;color:var(--ink3);font-size:13px;font-weight:600;cursor:pointer;padding:8px}
+.ghost{background:transparent;border:0;color:var(--ink2);font-size:13px;font-weight:600;cursor:pointer;padding:8px}
 .ghost:active{color:var(--ink)}
 
 /* ---------- SECTIONS (no floating cards) ---------- */
 .block{padding:30px 0}
-.block:last-child{border-bottom:0}
 .lbl{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
 .lbl h2{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);font-weight:500}
 .lbl a{font-size:13px;color:var(--ink3);font-weight:600;cursor:pointer}
@@ -72,8 +77,8 @@ button,input{font-family:inherit;font-size:inherit;color:inherit}
 .dayhead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
 .dayhead h1{font-family:'Archivo Black',sans-serif;font-size:clamp(46px,14vw,68px);line-height:.84;letter-spacing:-.04em;text-transform:uppercase}
 .dayhead .meta{text-align:right;flex-shrink:0}
-.dayhead .meta .big{font-family:'Archivo Black',sans-serif;font-size:38px;line-height:.85;letter-spacing:-.03em}
-.focusline{color:var(--ink2);font-size:15px;margin-top:12px;padding-bottom:20px;border-bottom:2px solid var(--ink)}
+.dayhead .meta .big{font-family:'JetBrains Mono',monospace;font-size:var(--t5);font-weight:700;line-height:.9;letter-spacing:-.02em;color:var(--ink2)}
+.focusline{color:var(--ink2);font-size:var(--t3);margin-top:12px}
 .metarow{display:flex;gap:18px;margin-top:16px;flex-wrap:wrap}
 .metarow div{display:flex;flex-direction:column;gap:2px}
 .metarow .k{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
@@ -85,10 +90,9 @@ button,input{font-family:inherit;font-size:inherit;color:inherit}
 .plain li .t{color:var(--ink)}
 .plain li .n{font-family:'JetBrains Mono',monospace;color:var(--ink3);font-size:14px;white-space:nowrap}
 
-.cta{width:100%;margin-top:22px;background:var(--acc);color:#0C0C0D;border:0;border-radius:0;padding:20px;
-  font-weight:700;font-size:16.5px;cursor:pointer;letter-spacing:-.01em}
-.cta:active{opacity:.9}
-.cta.sec{background:transparent;color:var(--ink);border:1px solid var(--line2)}
+.cta{width:100%;margin-top:22px;background:transparent;color:var(--ink);border:2px solid var(--ink);
+  padding:18px;font-weight:700;font-size:var(--t3);cursor:pointer;letter-spacing:-.01em}
+.cta:active{background:var(--ink);color:var(--bg)}
 
 /* progress bar */
 .pbar{height:3px;background:var(--line);border-radius:0;overflow:hidden;margin-top:18px}
@@ -100,11 +104,11 @@ button,input{font-family:inherit;font-size:inherit;color:inherit}
 .wkbar-in{display:flex;align-items:center;justify-content:space-between;height:54px;gap:12px}
 .wkbar .clock{font-family:'JetBrains Mono',monospace;font-size:17px;font-weight:700;letter-spacing:.02em}
 .wkbar .nm{font-size:14px;color:var(--ink2);font-weight:600}
-.finishb{background:var(--acc);color:#0C0C0D;border:0;border-radius:0;padding:9px 15px;font-weight:700;font-size:14px;cursor:pointer}
+.finishb{background:transparent;color:var(--ink2);border:var(--hair);padding:9px 15px;font-weight:700;font-size:var(--t2);cursor:pointer}
 
-.exblock{padding:22px 0}
+.exblock{padding:30px 0}
 .exhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:4px}
-.exhead .nm{font-size:17.5px;font-weight:700;letter-spacing:-.01em}
+.exhead .nm{font-size:var(--t4);font-weight:700;letter-spacing:-.01em}
 .exhead .vol{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--ink3);white-space:nowrap}
 .excue{color:var(--ink2);font-size:13.5px;margin-bottom:14px}
 .excue b{color:var(--ink);font-weight:600}
@@ -118,17 +122,21 @@ button,input{font-family:inherit;font-size:inherit;color:inherit}
 .grid .setn{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:var(--ink2);width:34px}
 .grid .prev{font-family:'JetBrains Mono',monospace;font-size:13.5px;color:var(--ink3);width:78px}
 .grid .prev.has{color:var(--ink2)}
-.grid input{width:100%;background:var(--surface);border:1px solid transparent;border-radius:0;padding:10px 4px;
-  font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:500;text-align:center;outline:none}
-.grid input:focus{border-color:var(--acc);background:var(--raise)}
+.grid input{width:100%;background:transparent;border:0;border-bottom:2px solid var(--line2);
+  padding:10px 4px;font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:500;text-align:center;outline:none}
+.grid input:focus{border-bottom-color:var(--acc)}
 .grid input::placeholder{color:#4A4A52}
-.grid .wcell{width:78px}.grid .rcell{width:66px}
-.tick{width:36px;height:36px;border-radius:0;border:1px solid var(--line2);background:transparent;
-  color:transparent;cursor:pointer;font-size:15px;font-weight:700;line-height:1}
-.tick.on{background:var(--ok);border-color:var(--ok);color:#0A2617;animation:pop .18s ease}
-@keyframes pop{0%{transform:scale(.86)}60%{transform:scale(1.06)}100%{transform:scale(1)}}
-tr.set.on .setn{color:var(--ok)}
-tr.set.on input{background:rgba(74,222,128,.07)}
+.grid .wcell{width:78px;padding-right:10px}.grid .rcell{width:66px;padding-right:10px}
+.tick,.warmrow .tickw{width:40px;height:40px;border:var(--hair);background:transparent;color:transparent;
+  cursor:pointer;font-size:15px;font-weight:700;line-height:1;flex-shrink:0}
+.tick.on,.warmrow .tickw.on{background:var(--acc);border-color:var(--acc);color:#0C0C0D}
+tr.set.on .setn{color:var(--acc);font-family:'Archivo Black',sans-serif;font-size:var(--t4);letter-spacing:-.03em}
+/* completion reads as a directional wipe, not a component-library bounce */
+tr.set{position:relative}
+tr.set td:first-child::before{content:'';position:absolute;left:-11px;top:2px;bottom:2px;width:3px;
+  background:var(--acc);transform:scaleY(0);transform-origin:top;transition:transform .22s cubic-bezier(.2,.8,.2,1)}
+tr.set.on td:first-child::before{transform:scaleY(1)}
+tr.set.on input{border-bottom-color:var(--acc);color:var(--acc)}
 
 /* ---------- REST BAR ---------- */
 .restbar{position:fixed;left:0;right:0;bottom:calc(64px + env(safe-area-inset-bottom,0px));z-index:40;
@@ -142,43 +150,44 @@ tr.set.on input{background:rgba(74,222,128,.07)}
 .restbar .track{position:absolute;left:0;bottom:0;height:2px;background:var(--acc);transition:width .3s linear}
 
 /* ---------- TABS ---------- */
-.tabs{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(12,12,13,.97);backdrop-filter:blur(12px);
-  border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
-.tabs-in{max-width:600px;margin:0 auto;display:flex}
-.tabs button{flex:1;background:transparent;border:0;color:var(--ink3);padding:11px 0 10px;cursor:pointer;
-  display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10.5px;font-weight:600;letter-spacing:.04em}
-.tabs button svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.7}
-.tabs button.on{color:var(--acc)}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--bg);
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabs-in{max-width:600px;margin:0 auto;display:flex;gap:30px;padding:0 18px}
+.tabs button{flex:none;background:transparent;border:0;color:var(--ink3);padding:18px 0;cursor:pointer;
+  font-family:'JetBrains Mono',monospace;font-size:var(--t1);letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+.tabs button.on{color:var(--ink)}
 
 /* ---------- PROGRESS ---------- */
 .wgrid{display:flex;align-items:flex-end;justify-content:space-between;gap:14px}
 .wnum{font-family:'JetBrains Mono',monospace;font-size:40px;font-weight:700;line-height:1;letter-spacing:-.02em}
 .wnum span{font-size:16px;color:var(--ink3);font-weight:500}
 .wdelta{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700}
-.wdelta.down{color:var(--ok)}.wdelta.up{color:var(--warn)}
+.wdelta.down{color:var(--acc)}.wdelta.up{color:var(--flag)}
 .spark{width:100%;height:74px;margin-top:16px;display:block}
-.rows{}
 .rows .r{display:flex;justify-content:space-between;padding:10px 0;font-size:15px}
 .rows .r .d{color:var(--ink2);font-family:'JetBrains Mono',monospace;font-size:13.5px}
 .rows .r .v{font-family:'JetBrains Mono',monospace;font-weight:700}
 .none{color:var(--ink3);font-size:14.5px;padding:18px 0}
-.qline{color:var(--ink3);font-size:13.5px;line-height:1.6;padding:22px 0 8px;border-top:1px solid var(--line)}
-.qline b{color:var(--ink2);font-weight:600;display:block;margin-bottom:5px}
+.qline{padding:24px 0;font-size:var(--t4);line-height:1.3;color:var(--ink);letter-spacing:-.01em}
+.qline b{display:block;font-family:'JetBrains Mono',monospace;font-size:var(--t1);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink3);font-weight:500;margin-top:12px}
 .foot{color:var(--ink3);font-size:12px;line-height:1.7;padding:16px 0 30px}
 
-/* superset + station */
-.ssgroup{border-left:1px solid var(--line2);padding-left:15px;margin:6px 0 0}
+/* signature: one divider, and it always tells you where you are */
+.rule{border-top:2px solid var(--ink);position:relative;margin:36px 0 18px;height:0}
+.rule::after{content:attr(data-n);position:absolute;right:0;top:-10px;background:var(--bg);
+  padding-left:10px;font-family:'JetBrains Mono',monospace;font-size:var(--t1);
+  font-weight:700;color:var(--ink3);letter-spacing:.18em}
+
+/* superset */
+.ssgroup{padding-left:15px;margin:6px 0 0}
 .sstag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--ink3);font-weight:500;padding:14px 0 2px}
-.sstag span{color:var(--ink3)}
-.station{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--ink3);margin:4px 0 12px}
+
 .warmrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0 22px}
 .warmrow .l b{font-size:16.5px;font-weight:700;display:block}
 .warmrow .l span{color:var(--ink2);font-size:13.5px}
-.warmrow .tickw{width:36px;height:36px;border-radius:0;border:1px solid var(--line2);background:transparent;
-  color:transparent;cursor:pointer;font-size:15px;font-weight:700;flex-shrink:0}
-.warmrow .tickw.on{background:var(--ok);border-color:var(--ok);color:#0A2617}
+
 .dur{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink3)}
 
 /* form / technique sheet */
@@ -190,26 +199,25 @@ tr.set.on input{background:rgba(74,222,128,.07)}
 .sheetmask{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.8);opacity:0;pointer-events:none;
   transition:opacity .2s;display:flex;align-items:flex-end}
 .sheetmask.on{opacity:1;pointer-events:auto}
-.formsheet{background:var(--surface);width:100%;max-width:600px;margin:0 auto;border-top:1px solid var(--line2);
+.formsheet{background:var(--surface);width:100%;max-width:600px;margin:0 auto;
   max-height:88vh;overflow-y:auto;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px));
   transform:translateY(100%);transition:transform .28s}
 .sheetmask.on .formsheet{transform:none}
 .fs-top{position:sticky;top:0;background:var(--surface);border-bottom:1px solid var(--line);
   padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;z-index:2}
 .fs-top h3{font-size:17px;font-weight:700;letter-spacing:-.01em}
-.vidbox{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-bottom:1px solid var(--line)}
+.vidbox{position:relative;width:100%;aspect-ratio:16/9;background:#000}
 .vidbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.vidmeta{padding:10px 18px;border-bottom:1px solid var(--line);color:var(--ink3);font-size:12.5px;line-height:1.4}
-.vidnone{padding:26px 18px;color:var(--ink3);font-size:14px;border-bottom:1px solid var(--line)}
+.vidmeta{padding:8px 18px 16px;color:var(--ink3);font-size:var(--t1);line-height:1.4}
+.vidnone{padding:26px 18px;color:var(--ink3);font-size:var(--t2)}
 .fs-body{padding:18px}
 .fs-body h4{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--ink3);font-weight:500;margin:18px 0 9px}
 .fs-body h4:first-child{margin-top:0}
 .fs-body ol,.fs-body ul{margin:0;padding-left:0;list-style:none}
 .fs-body li{display:flex;gap:11px;padding:6px 0;font-size:15.5px;line-height:1.45}
-.fs-body li:last-child{border-bottom:0}
 .fs-body li .i{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink3);flex-shrink:0;padding-top:2px}
-.fs-body li.miss .i{color:var(--warn)}
+.fs-body li.miss .i{color:var(--flag)}
 .fs-body p.tempo{font-size:14.5px;color:var(--ink2);line-height:1.5}
 
 details.more{margin-top:18px}
@@ -224,7 +232,7 @@ details.more p.tempo{margin-bottom:12px}
 .mask{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.72);display:flex;align-items:flex-end;
   opacity:0;pointer-events:none;transition:opacity .2s}
 .mask.on{opacity:1;pointer-events:auto}
-.mbox{background:var(--raise);border-top:1px solid var(--line2);width:100%;max-width:600px;margin:0 auto;
+.mbox{background:var(--raise);width:100%;max-width:600px;margin:0 auto;
   padding:22px 18px calc(26px + env(safe-area-inset-bottom,0px))}
 .mbox h3{font-size:19px;margin-bottom:16px;font-weight:700}
 .mbox input{width:100%;background:var(--surface);border:1px solid var(--line2);border-radius:0;
@@ -262,7 +270,7 @@ details.more p.tempo{margin-bottom:12px}
         <div id="otherWrap" class="hide" style="margin-top:14px"></div>
       </div>
       <div class="qline" id="quote"></div>
-      <div class="foot">Everything saves on this phone as you type. 3 days a week, 12 weeks.<br>Training plan only, not medical advice.</div>
+      <div class="foot">Training plan only, not medical advice.</div>
     </div>
   </div>
 
@@ -307,10 +315,10 @@ details.more p.tempo{margin-bottom:12px}
         <div class="rows" id="hRows"></div>
       </div>
       <div class="block">
-        <div class="lbl"><h2>Weigh-ins</h2><a id="btnReset">Erase all data</a></div>
+        <div class="lbl"><h2>Weigh-ins</h2></div>
         <div class="rows" id="wRows"></div>
       </div>
-      <div class="foot">&nbsp;</div>
+      <div class="foot"><a id="btnReset" style="color:var(--ink3);text-decoration:underline;cursor:pointer">Erase all data</a></div>
     </div>
   </div>
 
@@ -323,8 +331,8 @@ details.more p.tempo{margin-bottom:12px}
 
   <!-- TABS -->
   <nav class="tabs"><div class="tabs-in">
-    <button data-v="today" class="on"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Today</button>
-    <button data-v="prog"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 5-7"/></svg>Progress</button>
+    <button data-v="today" class="on" aria-current="page">Today</button>
+    <button data-v="prog">Progress</button>
   </div></nav>
 </div>
 
@@ -337,7 +345,7 @@ details.more p.tempo{margin-bottom:12px}
 
 <!-- WEIGH MODAL -->
 <div class="mask" id="mask"><div class="mbox">
-  <h3>Body weight today</h3>
+  <h3>Today</h3>
   <input id="mIn" inputmode="decimal" placeholder="0" />
   <div class="mrow"><button id="mNo">Cancel</button><button class="go" id="mYes">Save</button></div>
 </div></div>
@@ -540,24 +548,22 @@ function drawToday(){
   cM=p.month; cD=p.day; cW=p.week; planned=true;
   const dt=new Date().toLocaleDateString(undefined,{weekday:'long',day:'numeric',month:'short'});
   $("#todayBlock").innerHTML = p.finished
-   ? `<div class="eyebrow">${dt}</div><div class="dayhead"><h1>Done</h1></div>
+   ? `<div style="color:var(--ink3);font-size:var(--t2)">${dt}</div><div class="dayhead"><h1>Done</h1></div>
       <div class="focusline">All 36 sessions complete. Take an easy week, then run it again from your Month 3 weights.</div>`
    : `<div class="eyebrow">${dt}</div>
       <div class="dayhead">
         <h1>${d.id}</h1>
-        <div class="meta"><div class="big mono">${p.done+1}<span style="color:var(--ink3)">/${p.total}</span></div>
-        <div class="eyebrow">sessions</div></div>
+        <div class="meta"><div class="big">${p.done+1}<span style="color:var(--ink3)">/${p.total}</span></div></div>
       </div>
       <div class="focusline">${d.focus}</div>
+      <div class="rule" data-n="${String(p.done+1).padStart(2,"0")}/${p.total}"></div>
 
 `;
   $("#preview").innerHTML = d.ex.map(e=>{
-    const tag = /^(B|C)/.test(e[4]||"") ? ` <span style="color:var(--ink3);font-size:11px">${e[4]}</span>` : "";
-    return `<li><span class="t">${e[0]}${tag}</span><span class="n">${e[2]>1?e[2]+" \u00d7 "+e[3]:e[3]}</span></li>`;
+    return `<li><span class="t">${e[0]}</span><span class="n">${e[2]>1?e[2]+" \u00d7 "+e[3]:e[3]}</span></li>`;
   }).join("");
   const mins=estMinutes(p.month,p.day);
-  const rirTxt=(m.rir.match(/\d+(–\d+)?/)||["3"])[0];
-  const lb=document.querySelector("#sessLbl"); if(lb) lb.innerHTML=`~${mins} min &nbsp;\u00b7&nbsp; ${rirTxt} RIR`;
+  const lb=document.querySelector("#sessLbl"); if(lb) lb.textContent=`~${mins} min`;
   $("#btnStart").textContent = p.finished ? "Repeat Day "+d.id.slice(-1) : "Start workout";
   const qq=QUOTES[Math.floor(Date.now()/86400000)%QUOTES.length];
   $("#quote").innerHTML=`<b>“${qq[0]}”</b>${qq[1]}`;
@@ -576,7 +582,8 @@ function openWk(m,d,w,isPlan){
   $("#wkName").textContent=`${D.id} · ${M.id} · Wk ${w}`;
   drawEx();
   $("#vToday").classList.add("hide"); $("#vProg").classList.add("hide"); $("#vWork").classList.remove("hide");
-  $("#wkFoot").textContent=M.rir+" Tap the tick when a set is done — the rest timer starts itself.";
+  document.querySelector(".tabs").classList.add("hide");
+  $("#wkFoot").textContent="Tap the tick when a set is done, the rest timer starts itself. On a superset, do both moves back to back and rest after the second.";
   t0=Date.now(); clearInterval(clockT);
   clockT=setInterval(()=>{const s=Math.floor((Date.now()-t0)/1000);
     $("#clock").textContent=Math.floor(s/60)+":"+String(s%60).padStart(2,"0")},1000);
@@ -584,7 +591,7 @@ function openWk(m,d,w,isPlan){
 }
 function drawEx(){
   const M=MONTHS[cM], D=M.days[cD];
-  let html="", openGroup=null;
+  let html="", hdr=false, n=0;
   D.ex.forEach((e,ei)=>{
     const [nm,cue,sets,reps,grp,rest,station]=e;
     if(grp==="W"){
@@ -594,7 +601,7 @@ function drawEx(){
       return;
     }
     const pair = grp[0], isPairStart = /^(B1|C1)$/.test(grp), isPairEnd = /^(B2|C2)$/.test(grp);
-    if(isPairStart){ html+=`<div class="ssgroup"><div class="sstag">Superset \u00b7 <span>back to back, rest after both</span></div>`; openGroup=pair; }
+    if(isPairStart){ html+=`<div class="ssgroup"><div class="sstag">Superset</div>`; }
     let rows="";
     for(let s=1;s<=sets;s++){
       const k=key(cM,cD,cW,ei,s);
@@ -608,15 +615,16 @@ function drawEx(){
         <td class="c"><button class="tick ${done?'on':''}">\u2713</button></td></tr>`;
     }
     const vol=exVolume(cM,cD,cW,ei,sets);
-    html+=`<div class="exblock" data-ei="${ei}">
+    n++;
+    html+=`${n>1?`<div class="rule" data-n="${String(n).padStart(2,"0")}"></div>`:``}<div class="exblock" data-ei="${ei}">
       <div class="exhead"><div class="nm">${nm}</div>
         <div class="right">${exInfo(nm)?`<button class="formb" data-form="${nm.replace(/"/g,'&quot;')}"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Form</button>`:``}
         <div class="vol" id="v${ei}">${vol?Math.round(vol).toLocaleString()+" "+U():""}</div></div></div>
       <div class="excue">${cue} \u00b7 <b>${sets>1?sets+" \u00d7 "+reps:reps}</b>${e[7]?` \u00b7 <b>${e[7]} RIR</b>`:``}</div>
-      <div class="station">${station}</div>
-      <table class="grid"><thead><tr><th>Set</th><th>Previous</th><th class="c">${U()}</th><th class="c">Reps</th><th></th></tr></thead>
+      <table class="grid">${hdr?``:`<thead><tr><th>Set</th><th>Previous</th><th class="c">${U()}</th><th class="c">Reps</th><th></th></tr></thead>`}
       <tbody>${rows}</tbody></table></div>`;
-    if(isPairEnd){ html+=`</div>`; openGroup=null; }
+    hdr=true;
+    if(isPairEnd){ html+=`</div>`; }
   });
   $("#exWrap").innerHTML=html;
   $$("#exWrap tr.set").forEach(tr=>{
@@ -724,6 +732,7 @@ function drawProg(){
 
 /* ================== NAV + EVENTS ================== */
 function show(v){
+  document.querySelector(".tabs").classList.remove("hide");
   $("#vToday").classList.toggle("hide",v!=="today");
   $("#vProg").classList.toggle("hide",v!=="prog");
   $("#vWork").classList.add("hide");
@@ -757,7 +766,7 @@ function bind(){
     const b=e.target.closest(".tick"); if(!b)return;
     const tr=b.closest("tr"), k=tr.dataset.k, on=S.g("d:"+k)!=="1";
     S.s("d:"+k,on?"1":"0"); b.classList.toggle("on",on); tr.classList.toggle("on",on);
-    if(on){ saveRow(tr); const rs=parseInt(tr.dataset.rest||"0",10);
+    if(on){ saveRow(tr); if(navigator.vibrate) navigator.vibrate(12); const rs=parseInt(tr.dataset.rest||"0",10);
       if(rs>0) Rest.start(rs); else { Rest.stop(); toastNext(); } }
   });
   $("#fsClose").addEventListener("click",closeForm);
