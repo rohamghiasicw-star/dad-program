@@ -358,14 +358,14 @@ const QUOTES = [
 // Months progress reps + effort, not exercises.
 const MONTHS = [
  { id:"Month 1", weeks:"Weeks 1\u20134", rir:"Compounds 3 RIR \u00b7 isolation 1\u20132 RIR.", days:[
-   { id:"Day A", focus:"Incline Press \u00b7 Split Squat \u00b7 Row", ex:[
+   { id:"Day A", focus:"Incline Press · Row · Legs", ex:[
      ["Treadmill warm-up","Easy pace, 5 min, then a few light ramp sets",1,"5 min","W",0,"Treadmill",""],
-     ["Low Incline DB Press","Bench 15\u201330\u00b0. Ethier leads with this",3,"10\u201312","A",105,"Bench + dumbbells","3"],
-     ["DB Split Squat","Front heel down, torso tall",3,"10\u201312 each","A",105,"Bench + dumbbells","3"],
-     ["Seated Leg Curl","Hips flexed, 3 seconds down",3,"12\u201315","B1",0,"Leg machine","1\u20132"],
-     ["One-arm DB Row","3 sets PER SIDE. Drive the elbow down and back",3,"10\u201312 per side","B2",75,"Bench + dumbbells","2"],
-     ["DB Curl","No swinging",2,"12\u201315","C1",0,"Dumbbells","1"],
-     ["EZ-Bar Overhead Triceps Ext","Arms set slightly behind the head, not straight up",2,"12\u201315","C2",60,"EZ bar","1"]]},
+     ["Low Incline DB Press","Press along the collarbone line",3,"10–12","A",105,"Bench + dumbbells","3"],
+     ["One-arm DB Row","Drive the elbow down and back",3,"10–12 per side","A",105,"Bench + dumbbells","3"],
+     ["Seated Leg Curl","Sit tall, hips flexed, 3 seconds down",3,"12–15","B1",0,"Leg machine","1–2"],
+     ["Leg Extension","Pause a beat at the top",3,"12–15","B2",60,"Leg machine","1–2"],
+     ["DB Curl","No swinging, elbows still",2,"12–15","C1",0,"Dumbbells","1–2"],
+     ["EZ-Bar Overhead Triceps Ext","Arms set slightly behind the head",2,"12–15","C2",45,"EZ bar","1–2"]]},
    { id:"Day B", focus:"Squat \u00b7 Hips \u00b7 Bench + Row", ex:[
      ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
      ["Barbell Squat","Bar over midfoot, hips and chest rise together",3,"6\u20138","A",105,"Barbell","3"],
@@ -384,14 +384,14 @@ const MONTHS = [
      ["Chest-Supported Rear Delt Raise","Bench near vertical, protract, do not squeeze blades",2,"12\u201320","C2",60,"Incline bench","0\u20131"]]}
  ]},
  { id:"Month 2", weeks:"Weeks 5\u20138", rir:"Same lifts, more load. Compounds 2 RIR.", days:[
-   { id:"Day A", focus:"Incline Press \u00b7 Split Squat \u00b7 Row", ex:[
-     ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
-     ["Low Incline DB Press","Press along the collarbone line",3,"8\u201310","A",105,"Bench + dumbbells","2"],
-     ["DB Split Squat","Front heel down, torso tall",3,"8\u201310 each","A",105,"Bench + dumbbells","2"],
-     ["Seated Leg Curl","Hips flexed, 3 seconds down",3,"10\u201312","B1",0,"Leg machine","1"],
-     ["One-arm DB Row","3 sets PER SIDE",3,"8\u201310 per side","B2",75,"Bench + dumbbells","2"],
-     ["DB Curl","Strict",2,"10\u201312","C1",0,"Dumbbells","1"],
-     ["EZ-Bar Overhead Triceps Ext","Arms set behind the head",2,"10\u201312","C2",60,"EZ bar","1"]]},
+   { id:"Day A", focus:"Incline Press · Row · Legs", ex:[
+     ["Treadmill warm-up","Easy pace, 5 min, then a few light ramp sets",1,"5 min","W",0,"Treadmill",""],
+     ["Low Incline DB Press","Press along the collarbone line",3,"8–10","A",105,"Bench + dumbbells","2"],
+     ["One-arm DB Row","Drive the elbow down and back",3,"8–10 per side","A",105,"Bench + dumbbells","2"],
+     ["Seated Leg Curl","Sit tall, hips flexed, 3 seconds down",3,"10–12","B1",0,"Leg machine","1"],
+     ["Leg Extension","Pause a beat at the top",3,"12–15","B2",60,"Leg machine","1"],
+     ["DB Curl","No swinging, elbows still",2,"10–12","C1",0,"Dumbbells","1"],
+     ["EZ-Bar Overhead Triceps Ext","Arms set slightly behind the head",2,"10–12","C2",45,"EZ bar","1"]]},
    { id:"Day B", focus:"Squat \u00b7 Hips \u00b7 Bench + Row", ex:[
      ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
      ["Barbell Squat","Bar over midfoot, hips and chest rise together",3,"6\u20138","A",105,"Barbell","2"],
@@ -410,14 +410,14 @@ const MONTHS = [
      ["Chest-Supported Rear Delt Raise","Protract, do not squeeze blades",2,"12\u201320","C2",60,"Incline bench","0\u20131"]]}
  ]},
  { id:"Month 3", weeks:"Weeks 9\u201312", rir:"Same lifts again. Compounds 1\u20132 RIR. Push it.", days:[
-   { id:"Day A", focus:"Incline Press \u00b7 Split Squat \u00b7 Row", ex:[
-     ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
-     ["Low Incline DB Press","Press along the collarbone line",3,"8\u201310","A",105,"Bench + dumbbells","1\u20132"],
-     ["DB Split Squat","Front heel down, 3 seconds down",3,"8\u201310 each","A",105,"Bench + dumbbells","1\u20132"],
-     ["Seated Leg Curl","3 seconds down",3,"10\u201312","B1",0,"Leg machine","1"],
-     ["One-arm DB Row","3 sets PER SIDE",3,"8\u201310 per side","B2",75,"Bench + dumbbells","1\u20132"],
-     ["DB Curl","Strict",2,"10\u201312","C1",0,"Dumbbells","0\u20131"],
-     ["EZ-Bar Overhead Triceps Ext","Arms behind the head",2,"10\u201312","C2",60,"EZ bar","0\u20131"]]},
+   { id:"Day A", focus:"Incline Press · Row · Legs", ex:[
+     ["Treadmill warm-up","Easy pace, 5 min, then a few light ramp sets",1,"5 min","W",0,"Treadmill",""],
+     ["Low Incline DB Press","Press along the collarbone line",3,"8–10","A",105,"Bench + dumbbells","1–2"],
+     ["One-arm DB Row","Drive the elbow down and back",3,"8–10 per side","A",105,"Bench + dumbbells","1–2"],
+     ["Seated Leg Curl","Sit tall, hips flexed, 3 seconds down",3,"10–12","B1",0,"Leg machine","1"],
+     ["Leg Extension","Pause a beat at the top",3,"12–15","B2",60,"Leg machine","1"],
+     ["DB Curl","No swinging, elbows still",2,"10–12","C1",0,"Dumbbells","1"],
+     ["EZ-Bar Overhead Triceps Ext","Arms set slightly behind the head",2,"10–12","C2",45,"EZ bar","1"]]},
    { id:"Day B", focus:"Squat \u00b7 Hips \u00b7 Bench + Row", ex:[
      ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
      ["Barbell Squat","Bar over midfoot, hips and chest rise together",3,"6\u20138","A",105,"Barbell","1\u20132"],
