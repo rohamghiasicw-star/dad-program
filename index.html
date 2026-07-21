@@ -549,18 +549,15 @@ function drawToday(){
         <div class="eyebrow">sessions</div></div>
       </div>
       <div class="focusline">${d.focus}</div>
-      <div class="metarow">
-        <div><span class="k">Block</span><span class="v">${m.id.replace("Month ","")}</span></div>
-        <div><span class="k">Week</span><span class="v">${p.week}</span></div>
-        <div><span class="k">Effort</span><span class="v">${m.rir.match(/\d+(–\d+)?/)?.[0]||"3"} RIR</span></div>
-      </div>
+
 `;
   $("#preview").innerHTML = d.ex.map(e=>{
     const tag = /^(B|C)/.test(e[4]||"") ? ` <span style="color:var(--ink3);font-size:11px">${e[4]}</span>` : "";
     return `<li><span class="t">${e[0]}${tag}</span><span class="n">${e[2]>1?e[2]+" \u00d7 "+e[3]:e[3]}</span></li>`;
   }).join("");
   const mins=estMinutes(p.month,p.day);
-  const lb=document.querySelector("#sessLbl"); if(lb) lb.innerHTML=`~${mins} min`;
+  const rirTxt=(m.rir.match(/\d+(–\d+)?/)||["3"])[0];
+  const lb=document.querySelector("#sessLbl"); if(lb) lb.innerHTML=`~${mins} min &nbsp;\u00b7&nbsp; ${rirTxt} RIR`;
   $("#btnStart").textContent = p.finished ? "Repeat Day "+d.id.slice(-1) : "Start workout";
   const qq=QUOTES[Math.floor(Date.now()/86400000)%QUOTES.length];
   $("#quote").innerHTML=`<b>“${qq[0]}”</b>${qq[1]}`;
