@@ -292,15 +292,18 @@ footer{color:var(--faint);font-size:13px;text-align:center;padding:30px 20px 40p
 <script>
 /* ================= DATA ================= */
 const QUOTES = [
-  ["The right ingredients to become a great football player are first, the talent. Without that, you can't do much. Then, the talent is useless without hard work. Nothing falls from the skies.","Cristiano Ronaldo · France Football, 2019"],
-  ["My goal is to stay young as I get older, to stay competitive.","Cristiano Ronaldo · France Football, 2019"],
+  ["Your love makes me strong. Your hate makes me unstoppable.","Cristiano Ronaldo"],
+  ["If you don't believe you are the best, then you will never achieve all that you are capable of.","Cristiano Ronaldo"],
   ["Talent without working hard is nothing.","Cristiano Ronaldo"],
-  ["At the age of 19 to 20 years old, I understood that football was a matter of numbers, titles, records and goals.","Cristiano Ronaldo · France Football, 2019"]
+  ["Nothing falls from the skies. I would never have arrived where I am without the hard work.","Cristiano Ronaldo"],
+  ["My goal is to stay young as I get older, to stay competitive.","Cristiano Ronaldo"],
+  ["I'm not a perfectionist, but I like to feel that things are done well.","Cristiano Ronaldo"],
+  ["Dedication, hard work all the time, and belief.","Cristiano Ronaldo"]
 ];
 
 // ex: [name, cue, sets, reps]
 const MONTHS = [
-  { id:"Month 1", weeks:"Weeks 1–4", rir:"Stop every set with 4–6 reps left. This month is meant to feel easy.",
+  { id:"Month 1", weeks:"Weeks 1–4", rir:"Leave about 3 reps in the tank. Build the base, own the weights.",
     days:[
       { id:"Day A", focus:"Squat · Press · Row", ex:[
         ["Goblet Squat","Heels down, chest tall",3,"10–12"],
@@ -310,7 +313,7 @@ const MONTHS = [
         ["DB Curl","No swinging",3,"12–15"],
         ["Treadmill walk","Easy pace",1,"10 min"]]},
       { id:"Day B", focus:"Squat · Shoulders · Glutes", ex:[
-        ["DB Squat","Dumbbells at your sides",3,"10–12"],
+        ["Barbell Squat (light)","Controlled, the depth you own",3,"8–10"],
         ["Incline DB Press","Low incline",3,"10–12"],
         ["Seated DB Shoulder Press","Back supported",3,"10–12"],
         ["Glute Bridge / DB Hip Thrust","Squeeze at the top",3,"12–15"],
@@ -321,10 +324,10 @@ const MONTHS = [
         ["DB Chest Fly","Slight elbow bend",3,"12–15"],
         ["Band-assisted Pull-ups","Or one-arm DB row",3,"5–8"],
         ["Leg Extension","Pause 1 sec at the top",3,"12–15"],
-        ["Dead Bug","Slow, lower back flat",3,"8–10 each"],
+        ["Hanging Knee Raise","Controlled, no swinging",3,"10–12"],
         ["Treadmill walk","Easy pace",1,"10 min"]]}
     ]},
-  { id:"Month 2", weeks:"Weeks 5–8", rir:"Stop with 3–4 reps left. The weight goes up this month.",
+  { id:"Month 2", weeks:"Weeks 5–8", rir:"Leave 2 reps in the tank. The weight goes up this month.",
     days:[
       { id:"Day A", focus:"Split Squat · Press · Row", ex:[
         ["DB Split Squat","Front heel down, torso tall",3,"8–10 each"],
@@ -334,7 +337,7 @@ const MONTHS = [
         ["DB Hammer Curl","Palms facing in",3,"10–12"],
         ["Treadmill walk","Easy pace",1,"12 min"]]},
       { id:"Day B", focus:"Squat · Bench · Glutes", ex:[
-        ["Goblet Squat","Heavier than Month 1",3,"8–10"],
+        ["Front Squat","Elbows high, torso upright",3,"8"],
         ["Barbell Bench Press","Controlled, don't bounce it",3,"8–10"],
         ["Lateral Raises","Light, lead with elbows",3,"12–15"],
         ["DB Hip Thrust","Shoulders on bench, squeeze",3,"10–12"],
@@ -345,10 +348,10 @@ const MONTHS = [
         ["DB Bench Press","Full range",3,"8–10"],
         ["Band-assisted Pull-ups","Chin-ups fine too",3,"5–8"],
         ["Leg Extension","Squeeze at the top",3,"12"],
-        ["Side Plank","Straight line hip to shoulder",3,"20–30 s each"],
+        ["Hanging Knee Raise","Controlled, no swinging",3,"12"],
         ["Treadmill walk","Easy pace",1,"12 min"]]}
     ]},
-  { id:"Month 3", weeks:"Weeks 9–12", rir:"Stop with 2–3 reps left. Slow the lowering — that's where the work is.",
+  { id:"Month 3", weeks:"Weeks 9–12", rir:"Leave 1–2 reps in the tank. Slow the lowering — that's where the work is.",
     days:[
       { id:"Day A", focus:"Tempo day", ex:[
         ["DB Split Squat","3 seconds down",3,"8–10 each"],
@@ -358,7 +361,7 @@ const MONTHS = [
         ["DB Curl + Overhead Press","Superset, back to back",3,"10 each"],
         ["Treadmill walk","Easy pace",1,"12–15 min"]]},
       { id:"Day B", focus:"Strength day", ex:[
-        ["Goblet Squat","2 sec pause at the bottom",3,"8–10"],
+        ["Barbell Squat (moderate)","Controlled, the depth you own",3,"8"],
         ["Barbell Bench Press","Heaviest lift of the week",3,"6–8"],
         ["Arnold Press","Seated, back supported",3,"10–12"],
         ["Hip Thrust","2 sec pause at the top",3,"10–12"],
@@ -369,7 +372,7 @@ const MONTHS = [
         ["DB Chest Fly","Stretch, don't over-lower",3,"12–15"],
         ["Band-assisted Pull-ups","Less band than Month 1",3,"5–8"],
         ["Leg Curl (machine)","Slow and controlled",3,"12–15"],
-        ["Dead Bug / Side Plank","Controlled",3,"10 each"],
+        ["Hanging Knee Raise","Controlled, no swinging",3,"12"],
         ["Treadmill walk","Easy pace",1,"12–15 min"]]}
     ]}
 ];
