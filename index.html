@@ -62,7 +62,7 @@ button,input{font-family:inherit;font-size:inherit;color:inherit}
 .ghost:active{color:var(--ink)}
 
 /* ---------- SECTIONS (no floating cards) ---------- */
-.block{border-bottom:1px solid var(--line);padding:22px 0}
+.block{padding:30px 0}
 .block:last-child{border-bottom:0}
 .lbl{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
 .lbl h2{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);font-weight:500}
@@ -80,8 +80,8 @@ button,input{font-family:inherit;font-size:inherit;color:inherit}
 .metarow .v{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700}
 
 /* plain list, dividers not cards */
-.plain{border-top:1px solid var(--line)}
-.plain li{list-style:none;display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.plain{margin-top:4px}
+.plain li{list-style:none;display:flex;justify-content:space-between;gap:14px;padding:9px 0;font-size:16px}
 .plain li .t{color:var(--ink)}
 .plain li .n{font-family:'JetBrains Mono',monospace;color:var(--ink3);font-size:14px;white-space:nowrap}
 
@@ -102,7 +102,7 @@ button,input{font-family:inherit;font-size:inherit;color:inherit}
 .wkbar .nm{font-size:14px;color:var(--ink2);font-weight:600}
 .finishb{background:var(--acc);color:#0C0C0D;border:0;border-radius:7px;padding:9px 15px;font-weight:700;font-size:14px;cursor:pointer}
 
-.exblock{border-bottom:1px solid var(--line);padding:20px 0}
+.exblock{padding:26px 0}
 .exhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:4px}
 .exhead .nm{font-size:17.5px;font-weight:700;letter-spacing:-.01em}
 .exhead .vol{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--ink3);white-space:nowrap}
@@ -114,7 +114,7 @@ button,input{font-family:inherit;font-size:inherit;color:inherit}
 .grid th{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;
   color:var(--ink3);font-weight:500;text-align:left;padding:0 0 8px}
 .grid th.c,.grid td.c{text-align:center}
-.grid td{padding:5px 0;border-top:1px solid var(--line)}
+.grid td{padding:6px 0}
 .grid .setn{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:var(--ink2);width:34px}
 .grid .prev{font-family:'JetBrains Mono',monospace;font-size:13.5px;color:var(--ink3);width:78px}
 .grid .prev.has{color:var(--ink2)}
@@ -156,8 +156,8 @@ tr.set.on input{background:rgba(74,222,128,.07)}
 .wdelta{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700}
 .wdelta.down{color:var(--ok)}.wdelta.up{color:var(--warn)}
 .spark{width:100%;height:74px;margin-top:16px;display:block}
-.rows{border-top:1px solid var(--line)}
-.rows .r{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.rows{}
+.rows .r{display:flex;justify-content:space-between;padding:10px 0;font-size:15px}
 .rows .r .d{color:var(--ink2);font-family:'JetBrains Mono',monospace;font-size:13.5px}
 .rows .r .v{font-family:'JetBrains Mono',monospace;font-weight:700}
 .none{color:var(--ink3);font-size:14.5px;padding:18px 0}
@@ -172,7 +172,7 @@ tr.set.on input{background:rgba(74,222,128,.07)}
 .sstag span{color:var(--ink3)}
 .station{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--ink3);margin:4px 0 12px}
-.warmrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.warmrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0 22px}
 .warmrow .l b{font-size:16.5px;font-weight:700;display:block}
 .warmrow .l span{color:var(--ink2);font-size:13.5px}
 .warmrow .tickw{width:34px;height:34px;border-radius:7px;border:1px solid var(--line2);background:transparent;
@@ -205,11 +205,19 @@ tr.set.on input{background:rgba(74,222,128,.07)}
   color:var(--ink3);font-weight:500;margin:18px 0 9px}
 .fs-body h4:first-child{margin-top:0}
 .fs-body ol,.fs-body ul{margin:0;padding-left:0;list-style:none}
-.fs-body li{display:flex;gap:10px;padding:7px 0;font-size:15px;line-height:1.45;border-bottom:1px solid var(--line)}
+.fs-body li{display:flex;gap:11px;padding:6px 0;font-size:15.5px;line-height:1.45}
 .fs-body li:last-child{border-bottom:0}
 .fs-body li .i{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--acc);flex-shrink:0;padding-top:2px}
 .fs-body li.miss .i{color:var(--warn)}
 .fs-body p.tempo{font-size:14.5px;color:var(--ink2);line-height:1.5}
+
+details.more{margin-top:18px}
+details.more summary{list-style:none;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);padding:10px 0}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:" +"}
+details.more[open] summary::after{content:" \2212"}
+details.more p.tempo{margin-bottom:12px}
 
 /* modal */
 .mask{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.72);display:flex;align-items:flex-end;
@@ -247,7 +255,7 @@ tr.set.on input{background:rgba(74,222,128,.07)}
     <div class="wrap">
       <div class="block" id="todayBlock"></div>
       <div class="block">
-        <div class="lbl"><h2>This session</h2><a id="btnOther">Change day</a></div>
+        <div class="lbl"><h2 id="sessLbl"></h2><a id="btnOther">Change day</a></div>
         <ul class="plain" id="preview"></ul>
         <button class="cta" id="btnStart">Start workout</button>
         <div id="otherWrap" class="hide" style="margin-top:14px"></div>
@@ -351,89 +359,80 @@ const MONTHS = [
  { id:"Month 1", weeks:"Weeks 1\u20134", rir:"Compounds 3 RIR \u00b7 isolation 1\u20132 RIR.", days:[
    { id:"Day A", focus:"Incline Press \u00b7 Split Squat \u00b7 Row", ex:[
      ["Treadmill warm-up","Easy pace, 5 min, then a few light ramp sets",1,"5 min","W",0,"Treadmill",""],
-     ["Low Incline DB Press","Bench 15\u201330\u00b0. Ethier leads with this",3,"10\u201312","A",120,"Bench + dumbbells","3"],
-     ["DB Split Squat","Front heel down, torso tall",3,"10\u201312 each","A",120,"Bench + dumbbells","3"],
+     ["Low Incline DB Press","Bench 15\u201330\u00b0. Ethier leads with this",3,"10\u201312","A",105,"Bench + dumbbells","3"],
+     ["DB Split Squat","Front heel down, torso tall",3,"10\u201312 each","A",105,"Bench + dumbbells","3"],
      ["Seated Leg Curl","Hips flexed, 3 seconds down",3,"12\u201315","B1",0,"Leg machine","1\u20132"],
-     ["One-arm DB Row","3 sets PER SIDE. Drive the elbow down and back",3,"10\u201312 per side","B2",90,"Bench + dumbbells","2"],
-     ["DB Curl","No swinging",3,"12\u201315","C1",0,"Dumbbells","1"],
-     ["EZ-Bar Overhead Triceps Ext","Arms set slightly behind the head, not straight up",3,"12\u201315","C2",60,"EZ bar","1"],
-     ["Lateral Raise + Rear Delt Raise","Laterals, then chest-supported rear delts. Light",3,"12\u201320","D",45,"Dumbbells + bench","0\u20131"]]},
+     ["One-arm DB Row","3 sets PER SIDE. Drive the elbow down and back",3,"10\u201312 per side","B2",75,"Bench + dumbbells","2"],
+     ["DB Curl","No swinging",2,"12\u201315","C1",0,"Dumbbells","1"],
+     ["EZ-Bar Overhead Triceps Ext","Arms set slightly behind the head, not straight up",2,"12\u201315","C2",60,"EZ bar","1"]]},
    { id:"Day B", focus:"Squat \u00b7 Hips \u00b7 Bench + Row", ex:[
      ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
-     ["Barbell Squat","Bar over midfoot, hips and chest rise together",3,"6\u20138","A",150,"Barbell","3"],
-     ["DB Hip Thrust","Slot 2 so it gets a fresh effort",3,"10\u201312","A",120,"Bench","2"],
+     ["Barbell Squat","Bar over midfoot, hips and chest rise together",3,"6\u20138","A",105,"Barbell","3"],
+     ["DB Hip Thrust","Slot 2 so it gets a fresh effort",3,"10\u201312","A",105,"Bench","2"],
      ["Barbell Bench Press","Controlled, do not bounce it",3,"6\u201310","B1",0,"Barbell + bench","3"],
-     ["Chest-Supported DB Row","Second bench ~30\u00b0, chest on the pad",3,"10\u201312","B2",90,"Incline bench","2"],
-     ["Seated DB Shoulder Press","Back supported",3,"10\u201312","C1",0,"Bench + dumbbells","2"],
-     ["Band Pull-apart","Rear delts. Do not shrug",3,"15\u201320","C2",60,"Bands","1"],
-     ["Plank Hold","Core last, always",3,"20\u201330 s","D",45,"Floor",""]]},
+     ["Chest-Supported DB Row","Second bench ~30\u00b0, chest on the pad",3,"10\u201312","B2",75,"Incline bench","2"],
+     ["Seated DB Shoulder Press","Back supported",2,"10\u201312","C1",0,"Bench + dumbbells","2"],
+     ["Band Pull-apart","Rear delts. Do not shrug",2,"15\u201320","C2",60,"Bands","1"]]},
    { id:"Day C", focus:"Pull-ups first \u00b7 Legs \u00b7 Calves", ex:[
      ["Treadmill warm-up","Easy pace, 5 min",1,"5 min","W",0,"Treadmill",""],
-     ["Band-assisted Pull-ups","FIRST while fresh. Thinner band, not more reps",3,"6\u201310","A",120,"Pull-up bar","2"],
-     ["DB Step-ups","Whole foot on the bench, drive the heel, fast up",3,"8\u201310 each","A",120,"Bench + dumbbells","2"],
+     ["Band-assisted Pull-ups","FIRST while fresh. Thinner band, not more reps",3,"6\u201310","A",105,"Pull-up bar","2"],
+     ["DB Step-ups","Whole foot on the bench, drive the heel, fast up",3,"8\u201310 each","A",105,"Bench + dumbbells","2"],
      ["Flat DB Bench Press","Lie back on the same bench",3,"8\u201312","B1",0,"Bench + dumbbells","2"],
-     ["Seated Leg Curl","Second hamstring day of the week",3,"12\u201315","B2",90,"Leg machine","1"],
-     ["Standing DB Calf Raise","Toes on a plate, pause in the stretch",3,"12\u201315 each","C1",0,"Dumbbells","0\u20131"],
-     ["Chest-Supported Rear Delt Raise","Bench near vertical, protract, do not squeeze blades",3,"12\u201320","C2",60,"Incline bench","0\u20131"],
-     ["Hanging Knee Raise","Curl the pelvis up, C shape not L shape",3,"10\u201312","D",45,"Pull-up bar",""]]}
+     ["Seated Leg Curl","Second hamstring day of the week",3,"12\u201315","B2",75,"Leg machine","1"],
+     ["Standing DB Calf Raise","Toes on a plate, pause in the stretch",2,"12\u201315 each","C1",0,"Dumbbells","0\u20131"],
+     ["Chest-Supported Rear Delt Raise","Bench near vertical, protract, do not squeeze blades",2,"12\u201320","C2",60,"Incline bench","0\u20131"]]}
  ]},
  { id:"Month 2", weeks:"Weeks 5\u20138", rir:"Same lifts, more load. Compounds 2 RIR.", days:[
    { id:"Day A", focus:"Incline Press \u00b7 Split Squat \u00b7 Row", ex:[
      ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
-     ["Low Incline DB Press","Same lift, heavier than Month 1",3,"8\u201310","A",120,"Bench + dumbbells","2"],
-     ["DB Split Squat","Add load before adding reps now",3,"8\u201310 each","A",120,"Bench + dumbbells","2"],
+     ["Low Incline DB Press","Same lift, heavier than Month 1",3,"8\u201310","A",105,"Bench + dumbbells","2"],
+     ["DB Split Squat","Add load before adding reps now",3,"8\u201310 each","A",105,"Bench + dumbbells","2"],
      ["Seated Leg Curl","Hips flexed, 3 seconds down",3,"10\u201312","B1",0,"Leg machine","1"],
-     ["One-arm DB Row","3 sets PER SIDE",3,"8\u201310 per side","B2",90,"Bench + dumbbells","2"],
-     ["DB Curl","Strict",3,"10\u201312","C1",0,"Dumbbells","1"],
-     ["EZ-Bar Overhead Triceps Ext","Arms set behind the head",3,"10\u201312","C2",60,"EZ bar","1"],
-     ["Lateral Raise + Rear Delt Raise","Light, high reps",3,"12\u201320","D",45,"Dumbbells + bench","0\u20131"]]},
+     ["One-arm DB Row","3 sets PER SIDE",3,"8\u201310 per side","B2",75,"Bench + dumbbells","2"],
+     ["DB Curl","Strict",2,"10\u201312","C1",0,"Dumbbells","1"],
+     ["EZ-Bar Overhead Triceps Ext","Arms set behind the head",2,"10\u201312","C2",60,"EZ bar","1"]]},
    { id:"Day B", focus:"Squat \u00b7 Hips \u00b7 Bench + Row", ex:[
      ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
-     ["Barbell Squat","Add 5 lb, not 10, when you can",3,"6\u20138","A",150,"Barbell","2"],
-     ["DB Hip Thrust","Squeeze hard at the top",3,"10\u201312","A",120,"Bench","2"],
+     ["Barbell Squat","Add 5 lb, not 10, when you can",3,"6\u20138","A",105,"Barbell","2"],
+     ["DB Hip Thrust","Squeeze hard at the top",3,"10\u201312","A",105,"Bench","2"],
      ["Barbell Bench Press","Heaviest press of the week",3,"6\u20138","B1",0,"Barbell + bench","2"],
-     ["Chest-Supported DB Row","Chest stays on the pad",3,"8\u201312","B2",90,"Incline bench","2"],
-     ["Seated DB Shoulder Press","Back supported",3,"8\u201312","C1",0,"Bench + dumbbells","2"],
-     ["Band Pull-apart","Rear delts",3,"15\u201320","C2",60,"Bands","1"],
-     ["Plank with Shoulder Tap","Hips still",3,"20\u201330 s","D",45,"Floor",""]]},
+     ["Chest-Supported DB Row","Chest stays on the pad",3,"8\u201312","B2",75,"Incline bench","2"],
+     ["Seated DB Shoulder Press","Back supported",2,"8\u201312","C1",0,"Bench + dumbbells","2"],
+     ["Band Pull-apart","Rear delts",2,"15\u201320","C2",60,"Bands","1"]]},
    { id:"Day C", focus:"Pull-ups first \u00b7 Legs \u00b7 Calves", ex:[
      ["Treadmill warm-up","Easy pace, 5 min",1,"5 min","W",0,"Treadmill",""],
-     ["Band-assisted Pull-ups","Step down a band thickness when you hit 10s",3,"6\u201310","A",120,"Pull-up bar","2"],
-     ["DB Step-ups","Fast up, controlled down",3,"8\u201310 each","A",120,"Bench + dumbbells","2"],
+     ["Band-assisted Pull-ups","Step down a band thickness when you hit 10s",3,"6\u201310","A",105,"Pull-up bar","2"],
+     ["DB Step-ups","Fast up, controlled down",3,"8\u201310 each","A",105,"Bench + dumbbells","2"],
      ["Flat DB Bench Press","Same bench",3,"8\u201310","B1",0,"Bench + dumbbells","2"],
-     ["Seated Leg Curl","Second hamstring day",3,"10\u201312","B2",90,"Leg machine","1"],
-     ["Standing DB Calf Raise","Pause in the stretch",3,"12\u201315 each","C1",0,"Dumbbells","0\u20131"],
-     ["Chest-Supported Rear Delt Raise","Protract, do not squeeze blades",3,"12\u201320","C2",60,"Incline bench","0\u20131"],
-     ["Hanging Knee Raise","Curl the pelvis, C shape",3,"10\u201312","D",45,"Pull-up bar",""]]}
+     ["Seated Leg Curl","Second hamstring day",3,"10\u201312","B2",75,"Leg machine","1"],
+     ["Standing DB Calf Raise","Pause in the stretch",2,"12\u201315 each","C1",0,"Dumbbells","0\u20131"],
+     ["Chest-Supported Rear Delt Raise","Protract, do not squeeze blades",2,"12\u201320","C2",60,"Incline bench","0\u20131"]]}
  ]},
  { id:"Month 3", weeks:"Weeks 9\u201312", rir:"Same lifts again. Compounds 1\u20132 RIR. Push it.", days:[
    { id:"Day A", focus:"Incline Press \u00b7 Split Squat \u00b7 Row", ex:[
      ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
-     ["Low Incline DB Press","Heaviest it has been",3,"8\u201310","A",120,"Bench + dumbbells","1\u20132"],
-     ["DB Split Squat","3 sec down only if the load is stuck",3,"8\u201310 each","A",120,"Bench + dumbbells","1\u20132"],
+     ["Low Incline DB Press","Heaviest it has been",3,"8\u201310","A",105,"Bench + dumbbells","1\u20132"],
+     ["DB Split Squat","3 sec down only if the load is stuck",3,"8\u201310 each","A",105,"Bench + dumbbells","1\u20132"],
      ["Seated Leg Curl","3 seconds down",3,"10\u201312","B1",0,"Leg machine","1"],
-     ["One-arm DB Row","3 sets PER SIDE",3,"8\u201310 per side","B2",90,"Bench + dumbbells","1\u20132"],
-     ["DB Curl","Strict",3,"10\u201312","C1",0,"Dumbbells","0\u20131"],
-     ["EZ-Bar Overhead Triceps Ext","Arms behind the head",3,"10\u201312","C2",60,"EZ bar","0\u20131"],
-     ["Lateral Raise + Rear Delt Raise","Partials at the end of the last set",3,"12\u201320","D",45,"Dumbbells + bench","0"]]},
+     ["One-arm DB Row","3 sets PER SIDE",3,"8\u201310 per side","B2",75,"Bench + dumbbells","1\u20132"],
+     ["DB Curl","Strict",2,"10\u201312","C1",0,"Dumbbells","0\u20131"],
+     ["EZ-Bar Overhead Triceps Ext","Arms behind the head",2,"10\u201312","C2",60,"EZ bar","0\u20131"]]},
    { id:"Day B", focus:"Squat \u00b7 Hips \u00b7 Bench + Row", ex:[
      ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
-     ["Barbell Squat","Best set of the block",3,"6\u20138","A",150,"Barbell","1\u20132"],
-     ["DB Hip Thrust","2 sec pause at the top",3,"10\u201312","A",120,"Bench","1\u20132"],
+     ["Barbell Squat","Best set of the block",3,"6\u20138","A",105,"Barbell","1\u20132"],
+     ["DB Hip Thrust","2 sec pause at the top",3,"10\u201312","A",105,"Bench","1\u20132"],
      ["Barbell Bench Press","Heaviest lift of the week",3,"6\u20138","B1",0,"Barbell + bench","1\u20132"],
-     ["Chest-Supported DB Row","Chest on the pad",3,"8\u201312","B2",90,"Incline bench","1\u20132"],
-     ["Seated DB Shoulder Press","Back supported",3,"8\u201312","C1",0,"Bench + dumbbells","1\u20132"],
-     ["Band Pull-apart","Rear delts",3,"15\u201320","C2",60,"Bands","0\u20131"],
-     ["Plank with Shoulder Tap","Hips still",3,"30 s","D",45,"Floor",""]]},
+     ["Chest-Supported DB Row","Chest on the pad",3,"8\u201312","B2",75,"Incline bench","1\u20132"],
+     ["Seated DB Shoulder Press","Back supported",2,"8\u201312","C1",0,"Bench + dumbbells","1\u20132"],
+     ["Band Pull-apart","Rear delts",2,"15\u201320","C2",60,"Bands","0\u20131"]]},
    { id:"Day C", focus:"Pull-ups first \u00b7 Legs \u00b7 Calves", ex:[
      ["Treadmill warm-up","Easy pace, 5 min",1,"5 min","W",0,"Treadmill",""],
-     ["Band-assisted Pull-ups","Least band assistance of the block",3,"6\u201310","A",120,"Pull-up bar","1\u20132"],
-     ["DB Step-ups","Fast up, 3 sec down",3,"8\u201310 each","A",120,"Bench + dumbbells","1\u20132"],
+     ["Band-assisted Pull-ups","Least band assistance of the block",3,"6\u201310","A",105,"Pull-up bar","1\u20132"],
+     ["DB Step-ups","Fast up, 3 sec down",3,"8\u201310 each","A",105,"Bench + dumbbells","1\u20132"],
      ["Flat DB Bench Press","Same bench",3,"8\u201310","B1",0,"Bench + dumbbells","1\u20132"],
-     ["Seated Leg Curl","Second hamstring day",3,"10\u201312","B2",90,"Leg machine","0\u20131"],
-     ["Standing DB Calf Raise","Pause in the stretch",3,"12\u201315 each","C1",0,"Dumbbells","0"],
-     ["Chest-Supported Rear Delt Raise","Protract, do not squeeze blades",3,"12\u201320","C2",60,"Incline bench","0"],
-     ["Hanging Knee Raise","Curl the pelvis, C shape",3,"10\u201312","D",45,"Pull-up bar",""]]}
+     ["Seated Leg Curl","Second hamstring day",3,"10\u201312","B2",75,"Leg machine","0\u20131"],
+     ["Standing DB Calf Raise","Pause in the stretch",2,"12\u201315 each","C1",0,"Dumbbells","0"],
+     ["Chest-Supported Rear Delt Raise","Protract, do not squeeze blades",2,"12\u201320","C2",60,"Incline bench","0"]]}
  ]}
 ];
 
@@ -553,13 +552,13 @@ function drawToday(){
         <div><span class="k">Week</span><span class="v">${p.week}</span></div>
         <div><span class="k">Effort</span><span class="v">${m.rir.match(/\d+(–\d+)?/)?.[0]||"3"} RIR</span></div>
       </div>
-      <div class="pbar"><i style="width:${Math.round(p.done/p.total*100)}%"></i></div>`;
+`;
   $("#preview").innerHTML = d.ex.map(e=>{
     const tag = /^(B|C)/.test(e[4]||"") ? ` <span style="color:var(--acc);font-size:11px">${e[4]}</span>` : "";
     return `<li><span class="t">${e[0]}${tag}</span><span class="n">${e[2]>1?e[2]+" \u00d7 "+e[3]:e[3]}</span></li>`;
   }).join("");
   const mins=estMinutes(p.month,p.day);
-  const lb=document.querySelector("#vToday .lbl h2"); if(lb) lb.innerHTML=`This session <span class="dur">\u00b7 ~${mins} min</span>`;
+  const lb=document.querySelector("#sessLbl"); if(lb) lb.innerHTML=`~${mins} min`;
   $("#btnStart").textContent = p.finished ? "Repeat Day "+d.id.slice(-1) : "Start workout";
   const qq=QUOTES[Math.floor(Date.now()/86400000)%QUOTES.length];
   $("#quote").innerHTML=`<b>“${qq[0]}”</b>${qq[1]}`;
@@ -655,14 +654,17 @@ function openForm(name){
   const info=exInfo(name); if(!info) return;
   $("#fsName").textContent=name;
   $("#fsVideo").innerHTML = info.video
-    ? `<div class="vidbox"><iframe src="https://www.youtube.com/embed/${info.video}?rel=0&modestbranding=1" title="${name} form" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div><div class="vidmeta">${info.vch} — ${info.vti}</div>`
-    : `<div class="vidnone">No demo video attached for this one yet.</div>`;
-  const li=(a,cls)=>(a||[]).map((x,i)=>`<li class="${cls||''}"><span class="i">${cls==='miss'?'!':(i+1)}</span><span>${x}</span></li>`).join("");
+    ? `<div class="vidbox"><iframe src="https://www.youtube.com/embed/${info.video}?rel=0&modestbranding=1" title="${name} form" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div><div class="vidmeta">${info.vch}</div>`
+    : `<div class="vidnone">No video for this one yet.</div>`;
+  // short only: first sentence of each mistake
+  const trim=s=>{const t=String(s).split(/(?<=\.)\s/)[0]; return t.length>90?t.slice(0,88)+"\u2026":t;};
+  const cues=(info.cues||[]).slice(0,3).map(c=>`<li><span class="i">\u2192</span><span>${c}</span></li>`).join("");
+  const miss=(info.mistakes||[]).slice(0,2).map(m=>`<li class="miss"><span class="i">!</span><span>${trim(m)}</span></li>`).join("");
+  const extra=[info.tempo,info.note].filter(Boolean).map(t=>`<p class="tempo">${t}</p>`).join("");
   $("#fsBody").innerHTML =
-    (info.cues&&info.cues.length?`<h4>Cues</h4><ol>${li(info.cues)}</ol>`:``)+
-    (info.mistakes&&info.mistakes.length?`<h4>Common mistakes</h4><ul>${li(info.mistakes,'miss')}</ul>`:``)+
-    (info.tempo?`<h4>Tempo &amp; range</h4><p class="tempo">${info.tempo}</p>`:``)+
-    (info.note?`<h4>Worth knowing</h4><p class="tempo">${info.note}</p>`:``);
+    (cues?`<ul>${cues}</ul>`:``)+
+    (miss?`<h4>Avoid</h4><ul>${miss}</ul>`:``)+
+    (extra?`<details class="more"><summary>More detail</summary>${extra}</details>`:``);
   $("#fsMask").classList.add("on");
 }
 function closeForm(){ $("#fsMask").classList.remove("on"); $("#fsVideo").innerHTML=""; }
