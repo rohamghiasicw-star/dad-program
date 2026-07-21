@@ -344,77 +344,96 @@ const QUOTES = [
   ["I'm not a perfectionist, but I like to feel that things are done well.","Cristiano Ronaldo"],
   ["Dedication, hard work all the time, and belief.","Cristiano Ronaldo"]
 ];
-// [name, cue, sets, reps, group, restSec, station]
-// group: W=warm-up, A=main lift, B1/B2 + C1/C2 = supersets done back-to-back
+// [name, cue, sets, reps, group, restSec, station, rir]
+// Exercise SELECTION is fixed for all 12 weeks (so load records never reset).
+// Months progress reps + effort, not exercises.
 const MONTHS = [
- { id:"Month 1", weeks:"Weeks 1\u20134", rir:"Leave about 3 reps in the tank.", days:[
-   { id:"Day A", focus:"Squat \u00b7 Press \u00b7 Row", ex:[
-     ["Treadmill warm-up","Easy pace until you are warm",1,"10 min","W",0,"Treadmill"],
-     ["Goblet Squat","Heels down, chest tall",3,"10\u201312","A",90,"Dumbbells"],
-     ["Flat DB Bench Press","Elbows ~45\u00b0, control it down",3,"10\u201312","B1",0,"Bench + dumbbells"],
-     ["One-arm DB Row","Same bench, same dumbbells",3,"10\u201312 each","B2",60,"Bench + dumbbells"],
-     ["Leg Curl (machine)","3 seconds down",3,"12\u201315","C1",0,"Leg machine"],
-     ["DB Curl","Grab the dumbbells, no swinging",3,"12\u201315","C2",45,"Dumbbells"]]},
-   { id:"Day B", focus:"Squat \u00b7 Shoulders \u00b7 Glutes", ex:[
-     ["Treadmill warm-up","Easy pace until you are warm",1,"10 min","W",0,"Treadmill"],
-     ["Barbell Squat (light)","Controlled, the depth you own",3,"8\u201310","A",120,"Barbell"],
-     ["Incline DB Press","Bench on a low incline",3,"10\u201312","B1",0,"Bench + dumbbells"],
-     ["Seated DB Shoulder Press","Sit up, same bench",3,"10\u201312","B2",60,"Bench + dumbbells"],
-     ["Glute Bridge / DB Hip Thrust","Shoulders on the bench, squeeze",3,"12\u201315","C1",0,"Bench"],
-     ["Plank Hold","Straight down on the floor",3,"20\u201330 s","C2",45,"Floor"]]},
-   { id:"Day C", focus:"Legs \u00b7 Chest \u00b7 Back", ex:[
-     ["Treadmill warm-up","Easy pace until you are warm",1,"10 min","W",0,"Treadmill"],
-     ["DB Step-ups","Whole foot on the bench, drive the heel",3,"8\u201310 each","A",90,"Bench + dumbbells"],
-     ["DB Chest Fly","Lie back on the same bench",3,"12\u201315","B1",0,"Bench + dumbbells"],
-     ["Band-assisted Pull-ups","Straight to the bar",3,"5\u20138","B2",60,"Pull-up bar"],
-     ["Leg Extension","Pause 1 sec at the top",3,"12\u201315","C1",0,"Leg machine"],
-     ["Hanging Knee Raise","Back to the bar, controlled",3,"10\u201312","C2",45,"Pull-up bar"]]}
+ { id:"Month 1", weeks:"Weeks 1\u20134", rir:"Compounds 3 RIR \u00b7 isolation 1\u20132 RIR.", days:[
+   { id:"Day A", focus:"Incline Press \u00b7 Split Squat \u00b7 Row", ex:[
+     ["Treadmill warm-up","Easy pace, 5 min, then a few light ramp sets",1,"5 min","W",0,"Treadmill",""],
+     ["Low Incline DB Press","Bench 15\u201330\u00b0. Ethier leads with this",3,"10\u201312","A",120,"Bench + dumbbells","3"],
+     ["DB Split Squat","Front heel down, torso tall",3,"10\u201312 each","A",120,"Bench + dumbbells","3"],
+     ["Seated Leg Curl","Hips flexed, 3 seconds down",3,"12\u201315","B1",0,"Leg machine","1\u20132"],
+     ["One-arm DB Row","3 sets PER SIDE. Drive the elbow down and back",3,"10\u201312 per side","B2",90,"Bench + dumbbells","2"],
+     ["DB Curl","No swinging",3,"12\u201315","C1",0,"Dumbbells","1"],
+     ["EZ-Bar Overhead Triceps Ext","Arms set slightly behind the head, not straight up",3,"12\u201315","C2",60,"EZ bar","1"],
+     ["Lateral Raise + Rear Delt Raise","Laterals, then chest-supported rear delts. Light",3,"12\u201320","D",45,"Dumbbells + bench","0\u20131"]]},
+   { id:"Day B", focus:"Squat \u00b7 Hips \u00b7 Bench + Row", ex:[
+     ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
+     ["Barbell Squat","Bar over midfoot, hips and chest rise together",3,"6\u20138","A",150,"Barbell","3"],
+     ["DB Hip Thrust","Slot 2 so it gets a fresh effort",3,"10\u201312","A",120,"Bench","2"],
+     ["Barbell Bench Press","Controlled, do not bounce it",3,"6\u201310","B1",0,"Barbell + bench","3"],
+     ["Chest-Supported DB Row","Second bench ~30\u00b0, chest on the pad",3,"10\u201312","B2",90,"Incline bench","2"],
+     ["Seated DB Shoulder Press","Back supported",3,"10\u201312","C1",0,"Bench + dumbbells","2"],
+     ["Band Pull-apart","Rear delts. Do not shrug",3,"15\u201320","C2",60,"Bands","1"],
+     ["Plank Hold","Core last, always",3,"20\u201330 s","D",45,"Floor",""]]},
+   { id:"Day C", focus:"Pull-ups first \u00b7 Legs \u00b7 Calves", ex:[
+     ["Treadmill warm-up","Easy pace, 5 min",1,"5 min","W",0,"Treadmill",""],
+     ["Band-assisted Pull-ups","FIRST while fresh. Thinner band, not more reps",3,"6\u201310","A",120,"Pull-up bar","2"],
+     ["DB Step-ups","Whole foot on the bench, drive the heel, fast up",3,"8\u201310 each","A",120,"Bench + dumbbells","2"],
+     ["Flat DB Bench Press","Lie back on the same bench",3,"8\u201312","B1",0,"Bench + dumbbells","2"],
+     ["Seated Leg Curl","Second hamstring day of the week",3,"12\u201315","B2",90,"Leg machine","1"],
+     ["Standing DB Calf Raise","Toes on a plate, pause in the stretch",3,"12\u201315 each","C1",0,"Dumbbells","0\u20131"],
+     ["Chest-Supported Rear Delt Raise","Bench near vertical, protract, do not squeeze blades",3,"12\u201320","C2",60,"Incline bench","0\u20131"],
+     ["Hanging Knee Raise","Curl the pelvis up, C shape not L shape",3,"10\u201312","D",45,"Pull-up bar",""]]}
  ]},
- { id:"Month 2", weeks:"Weeks 5\u20138", rir:"Leave 2 reps in the tank. Weight goes up.", days:[
-   { id:"Day A", focus:"Split Squat \u00b7 Press \u00b7 Row", ex:[
-     ["Treadmill warm-up","Easy pace until you are warm",1,"10 min","W",0,"Treadmill"],
-     ["DB Split Squat","Front heel down, torso tall",3,"8\u201310 each","A",90,"Bench + dumbbells"],
-     ["Incline DB Press","Same bench, low incline",3,"8\u201310","B1",0,"Bench + dumbbells"],
-     ["One-arm DB Row","Same bench, same dumbbells",3,"8\u201310 each","B2",60,"Bench + dumbbells"],
-     ["Leg Curl (machine)","3 seconds down",3,"10\u201312","C1",0,"Leg machine"],
-     ["DB Hammer Curl","Palms facing in",3,"10\u201312","C2",45,"Dumbbells"]]},
-   { id:"Day B", focus:"Front Squat \u00b7 Bench \u00b7 Glutes", ex:[
-     ["Treadmill warm-up","Easy pace until you are warm",1,"10 min","W",0,"Treadmill"],
-     ["Front Squat","Elbows high, torso upright",3,"8","A",120,"Barbell"],
-     ["Barbell Bench Press","Same bar, flat bench",3,"8\u201310","B1",0,"Barbell + bench"],
-     ["Lateral Raises","Light dumbbells, lead with elbows",3,"12\u201315","B2",60,"Dumbbells"],
-     ["DB Hip Thrust","Shoulders on the bench",3,"10\u201312","C1",0,"Bench"],
-     ["Plank with Shoulder Tap","Straight down on the floor",3,"20\u201330 s","C2",45,"Floor"]]},
-   { id:"Day C", focus:"Legs \u00b7 Chest \u00b7 Pull", ex:[
-     ["Treadmill warm-up","Easy pace until you are warm",1,"10 min","W",0,"Treadmill"],
-     ["DB Step-ups","Control the way down",3,"8\u201310 each","A",90,"Bench + dumbbells"],
-     ["DB Bench Press","Lie back on the same bench",3,"8\u201310","B1",0,"Bench + dumbbells"],
-     ["Band-assisted Pull-ups","Straight to the bar",3,"5\u20138","B2",60,"Pull-up bar"],
-     ["Leg Extension","Squeeze at the top",3,"12","C1",0,"Leg machine"],
-     ["Hanging Knee Raise","Back to the bar, controlled",3,"12","C2",45,"Pull-up bar"]]}
+ { id:"Month 2", weeks:"Weeks 5\u20138", rir:"Same lifts, more load. Compounds 2 RIR.", days:[
+   { id:"Day A", focus:"Incline Press \u00b7 Split Squat \u00b7 Row", ex:[
+     ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
+     ["Low Incline DB Press","Same lift, heavier than Month 1",3,"8\u201310","A",120,"Bench + dumbbells","2"],
+     ["DB Split Squat","Add load before adding reps now",3,"8\u201310 each","A",120,"Bench + dumbbells","2"],
+     ["Seated Leg Curl","Hips flexed, 3 seconds down",3,"10\u201312","B1",0,"Leg machine","1"],
+     ["One-arm DB Row","3 sets PER SIDE",3,"8\u201310 per side","B2",90,"Bench + dumbbells","2"],
+     ["DB Curl","Strict",3,"10\u201312","C1",0,"Dumbbells","1"],
+     ["EZ-Bar Overhead Triceps Ext","Arms set behind the head",3,"10\u201312","C2",60,"EZ bar","1"],
+     ["Lateral Raise + Rear Delt Raise","Light, high reps",3,"12\u201320","D",45,"Dumbbells + bench","0\u20131"]]},
+   { id:"Day B", focus:"Squat \u00b7 Hips \u00b7 Bench + Row", ex:[
+     ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
+     ["Barbell Squat","Add 5 lb, not 10, when you can",3,"6\u20138","A",150,"Barbell","2"],
+     ["DB Hip Thrust","Squeeze hard at the top",3,"10\u201312","A",120,"Bench","2"],
+     ["Barbell Bench Press","Heaviest press of the week",3,"6\u20138","B1",0,"Barbell + bench","2"],
+     ["Chest-Supported DB Row","Chest stays on the pad",3,"8\u201312","B2",90,"Incline bench","2"],
+     ["Seated DB Shoulder Press","Back supported",3,"8\u201312","C1",0,"Bench + dumbbells","2"],
+     ["Band Pull-apart","Rear delts",3,"15\u201320","C2",60,"Bands","1"],
+     ["Plank with Shoulder Tap","Hips still",3,"20\u201330 s","D",45,"Floor",""]]},
+   { id:"Day C", focus:"Pull-ups first \u00b7 Legs \u00b7 Calves", ex:[
+     ["Treadmill warm-up","Easy pace, 5 min",1,"5 min","W",0,"Treadmill",""],
+     ["Band-assisted Pull-ups","Step down a band thickness when you hit 10s",3,"6\u201310","A",120,"Pull-up bar","2"],
+     ["DB Step-ups","Fast up, controlled down",3,"8\u201310 each","A",120,"Bench + dumbbells","2"],
+     ["Flat DB Bench Press","Same bench",3,"8\u201310","B1",0,"Bench + dumbbells","2"],
+     ["Seated Leg Curl","Second hamstring day",3,"10\u201312","B2",90,"Leg machine","1"],
+     ["Standing DB Calf Raise","Pause in the stretch",3,"12\u201315 each","C1",0,"Dumbbells","0\u20131"],
+     ["Chest-Supported Rear Delt Raise","Protract, do not squeeze blades",3,"12\u201320","C2",60,"Incline bench","0\u20131"],
+     ["Hanging Knee Raise","Curl the pelvis, C shape",3,"10\u201312","D",45,"Pull-up bar",""]]}
  ]},
- { id:"Month 3", weeks:"Weeks 9\u201312", rir:"Leave 1\u20132 reps. Slow the lowering.", days:[
-   { id:"Day A", focus:"Tempo", ex:[
-     ["Treadmill warm-up","Easy pace until you are warm",1,"10 min","W",0,"Treadmill"],
-     ["DB Split Squat","3 seconds down",3,"8\u201310 each","A",90,"Bench + dumbbells"],
-     ["Incline DB Press","3 seconds down, same bench",3,"8\u201310","B1",0,"Bench + dumbbells"],
-     ["One-arm DB Row","1 sec squeeze at the top",3,"8\u201310 each","B2",60,"Bench + dumbbells"],
-     ["Leg Extension","Slow, pause at the top",3,"12\u201315","C1",0,"Leg machine"],
-     ["DB Curl + Overhead Press","Straight through, no rest between",3,"10 each","C2",45,"Dumbbells"]]},
-   { id:"Day B", focus:"Strength", ex:[
-     ["Treadmill warm-up","Easy pace until you are warm",1,"10 min","W",0,"Treadmill"],
-     ["Barbell Squat (moderate)","Controlled, the depth you own",3,"8","A",120,"Barbell"],
-     ["Barbell Bench Press","Same bar, flat bench",3,"6\u20138","B1",0,"Barbell + bench"],
-     ["Arnold Press","Seated on the same bench",3,"10\u201312","B2",60,"Bench + dumbbells"],
-     ["Hip Thrust","2 sec pause at the top",3,"10\u201312","C1",0,"Bench"],
-     ["Plank with Shoulder Tap","Straight down on the floor",3,"30 s","C2",45,"Floor"]]},
-   { id:"Day C", focus:"Tempo", ex:[
-     ["Treadmill warm-up","Easy pace until you are warm",1,"10 min","W",0,"Treadmill"],
-     ["DB Step-ups","3 seconds down",3,"8\u201310 each","A",90,"Bench + dumbbells"],
-     ["DB Chest Fly","Lie back on the same bench",3,"12\u201315","B1",0,"Bench + dumbbells"],
-     ["Band-assisted Pull-ups","Less band than Month 1",3,"5\u20138","B2",60,"Pull-up bar"],
-     ["Leg Curl (machine)","Slow and controlled",3,"12\u201315","C1",0,"Leg machine"],
-     ["Hanging Knee Raise","Back to the bar, controlled",3,"12","C2",45,"Pull-up bar"]]}
+ { id:"Month 3", weeks:"Weeks 9\u201312", rir:"Same lifts again. Compounds 1\u20132 RIR. Push it.", days:[
+   { id:"Day A", focus:"Incline Press \u00b7 Split Squat \u00b7 Row", ex:[
+     ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
+     ["Low Incline DB Press","Heaviest it has been",3,"8\u201310","A",120,"Bench + dumbbells","1\u20132"],
+     ["DB Split Squat","3 sec down only if the load is stuck",3,"8\u201310 each","A",120,"Bench + dumbbells","1\u20132"],
+     ["Seated Leg Curl","3 seconds down",3,"10\u201312","B1",0,"Leg machine","1"],
+     ["One-arm DB Row","3 sets PER SIDE",3,"8\u201310 per side","B2",90,"Bench + dumbbells","1\u20132"],
+     ["DB Curl","Strict",3,"10\u201312","C1",0,"Dumbbells","0\u20131"],
+     ["EZ-Bar Overhead Triceps Ext","Arms behind the head",3,"10\u201312","C2",60,"EZ bar","0\u20131"],
+     ["Lateral Raise + Rear Delt Raise","Partials at the end of the last set",3,"12\u201320","D",45,"Dumbbells + bench","0"]]},
+   { id:"Day B", focus:"Squat \u00b7 Hips \u00b7 Bench + Row", ex:[
+     ["Treadmill warm-up","Easy pace, 5 min, then light ramp sets",1,"5 min","W",0,"Treadmill",""],
+     ["Barbell Squat","Best set of the block",3,"6\u20138","A",150,"Barbell","1\u20132"],
+     ["DB Hip Thrust","2 sec pause at the top",3,"10\u201312","A",120,"Bench","1\u20132"],
+     ["Barbell Bench Press","Heaviest lift of the week",3,"6\u20138","B1",0,"Barbell + bench","1\u20132"],
+     ["Chest-Supported DB Row","Chest on the pad",3,"8\u201312","B2",90,"Incline bench","1\u20132"],
+     ["Seated DB Shoulder Press","Back supported",3,"8\u201312","C1",0,"Bench + dumbbells","1\u20132"],
+     ["Band Pull-apart","Rear delts",3,"15\u201320","C2",60,"Bands","0\u20131"],
+     ["Plank with Shoulder Tap","Hips still",3,"30 s","D",45,"Floor",""]]},
+   { id:"Day C", focus:"Pull-ups first \u00b7 Legs \u00b7 Calves", ex:[
+     ["Treadmill warm-up","Easy pace, 5 min",1,"5 min","W",0,"Treadmill",""],
+     ["Band-assisted Pull-ups","Least band assistance of the block",3,"6\u201310","A",120,"Pull-up bar","1\u20132"],
+     ["DB Step-ups","Fast up, 3 sec down",3,"8\u201310 each","A",120,"Bench + dumbbells","1\u20132"],
+     ["Flat DB Bench Press","Same bench",3,"8\u201310","B1",0,"Bench + dumbbells","1\u20132"],
+     ["Seated Leg Curl","Second hamstring day",3,"10\u201312","B2",90,"Leg machine","0\u20131"],
+     ["Standing DB Calf Raise","Pause in the stretch",3,"12\u201315 each","C1",0,"Dumbbells","0"],
+     ["Chest-Supported Rear Delt Raise","Protract, do not squeeze blades",3,"12\u201320","C2",60,"Incline bench","0"],
+     ["Hanging Knee Raise","Curl the pelvis, C shape",3,"10\u201312","D",45,"Pull-up bar",""]]}
  ]}
 ];
 
@@ -588,7 +607,7 @@ function drawEx(){
       <div class="exhead"><div class="nm">${nm}</div>
         <div class="right">${exInfo(nm)?`<button class="formb" data-form="${nm.replace(/"/g,'&quot;')}"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Form</button>`:``}
         <div class="vol" id="v${ei}">${vol?Math.round(vol).toLocaleString()+" "+U():""}</div></div></div>
-      <div class="excue">${cue} \u00b7 <b>${sets>1?sets+" \u00d7 "+reps:reps}</b></div>
+      <div class="excue">${cue} \u00b7 <b>${sets>1?sets+" \u00d7 "+reps:reps}</b>${e[7]?` \u00b7 <b>${e[7]} RIR</b>`:``}</div>
       <div class="station">${station}</div>
       <table class="grid"><thead><tr><th>Set</th><th>Previous</th><th class="c">${U()}</th><th class="c">Reps</th><th></th></tr></thead>
       <tbody>${rows}</tbody></table></div>`;
