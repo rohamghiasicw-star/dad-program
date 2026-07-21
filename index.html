@@ -565,7 +565,8 @@ function drawToday(){
   const mins=estMinutes(p.month,p.day);
   const lb=document.querySelector("#sessLbl"); if(lb) lb.textContent=`~${mins} min`;
   $("#btnStart").textContent = p.finished ? "Repeat Day "+d.id.slice(-1) : "Start workout";
-  const qq=QUOTES[Math.floor(Date.now()/86400000)%QUOTES.length];
+  let qi=parseInt(S.g("qi")||"-1",10); qi=(qi+1)%QUOTES.length; S.s("qi",String(qi));
+  const qq=QUOTES[qi];
   $("#quote").innerHTML=`<b>“${qq[0]}”</b>${qq[1]}`;
 }
 function drawOther(){
