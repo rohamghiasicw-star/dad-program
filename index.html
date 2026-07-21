@@ -43,11 +43,11 @@ button,input{font-family:inherit;font-size:inherit;color:inherit}
   font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:500;padding:8px 2px;outline:none}
 .obin:focus{border-color:var(--acc)}
 .obin::placeholder{color:#3A3A40}
-.obunits{display:flex;gap:0;border:1px solid var(--line2);border-radius:8px;overflow:hidden;margin-top:6px}
+.obunits{display:flex;gap:0;border:1px solid var(--line2);border-radius:0;margin-top:6px}
 .obunits button{flex:1;background:transparent;border:0;color:var(--ink2);font-weight:600;padding:15px;cursor:pointer}
 .obunits button+button{border-left:1px solid var(--line2)}
 .obunits button.on{background:var(--acc);color:#0C0C0D}
-.obnext{width:100%;margin-top:32px;background:var(--ink);color:#0C0C0D;border:0;border-radius:8px;padding:17px;
+.obnext{width:100%;margin-top:32px;background:var(--acc);color:#0C0C0D;border:0;border-radius:0;padding:19px;
   font-weight:700;font-size:16px;cursor:pointer}
 .oberr{color:var(--warn);font-size:14px;margin-top:10px;min-height:18px}
 
@@ -70,10 +70,10 @@ button,input{font-family:inherit;font-size:inherit;color:inherit}
 
 /* today heading */
 .dayhead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
-.dayhead h1{font-family:'Archivo Black',sans-serif;font-size:clamp(38px,11vw,54px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase}
+.dayhead h1{font-family:'Archivo Black',sans-serif;font-size:clamp(46px,14vw,68px);line-height:.84;letter-spacing:-.04em;text-transform:uppercase}
 .dayhead .meta{text-align:right;flex-shrink:0}
-.dayhead .meta .big{font-family:'JetBrains Mono',monospace;font-size:19px;font-weight:700}
-.focusline{color:var(--ink2);font-size:15px;margin-top:10px}
+.dayhead .meta .big{font-family:'Archivo Black',sans-serif;font-size:38px;line-height:.85;letter-spacing:-.03em}
+.focusline{color:var(--ink2);font-size:15px;margin-top:12px;padding-bottom:20px;border-bottom:2px solid var(--ink)}
 .metarow{display:flex;gap:18px;margin-top:16px;flex-wrap:wrap}
 .metarow div{display:flex;flex-direction:column;gap:2px}
 .metarow .k{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
@@ -85,7 +85,7 @@ button,input{font-family:inherit;font-size:inherit;color:inherit}
 .plain li .t{color:var(--ink)}
 .plain li .n{font-family:'JetBrains Mono',monospace;color:var(--ink3);font-size:14px;white-space:nowrap}
 
-.cta{width:100%;margin-top:20px;background:var(--acc);color:#0C0C0D;border:0;border-radius:8px;padding:18px;
+.cta{width:100%;margin-top:22px;background:var(--acc);color:#0C0C0D;border:0;border-radius:0;padding:20px;
   font-weight:700;font-size:16.5px;cursor:pointer;letter-spacing:-.01em}
 .cta:active{opacity:.9}
 .cta.sec{background:transparent;color:var(--ink);border:1px solid var(--line2)}
@@ -100,14 +100,14 @@ button,input{font-family:inherit;font-size:inherit;color:inherit}
 .wkbar-in{display:flex;align-items:center;justify-content:space-between;height:54px;gap:12px}
 .wkbar .clock{font-family:'JetBrains Mono',monospace;font-size:17px;font-weight:700;letter-spacing:.02em}
 .wkbar .nm{font-size:14px;color:var(--ink2);font-weight:600}
-.finishb{background:var(--acc);color:#0C0C0D;border:0;border-radius:7px;padding:9px 15px;font-weight:700;font-size:14px;cursor:pointer}
+.finishb{background:var(--acc);color:#0C0C0D;border:0;border-radius:0;padding:9px 15px;font-weight:700;font-size:14px;cursor:pointer}
 
 .exblock{padding:26px 0}
 .exhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:4px}
 .exhead .nm{font-size:17.5px;font-weight:700;letter-spacing:-.01em}
 .exhead .vol{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--ink3);white-space:nowrap}
 .excue{color:var(--ink2);font-size:13.5px;margin-bottom:14px}
-.excue b{color:var(--acc);font-weight:600}
+.excue b{color:var(--ink);font-weight:600}
 
 /* the logger grid — Hevy/Strong pattern */
 .grid{width:100%;border-collapse:collapse}
@@ -118,14 +118,15 @@ button,input{font-family:inherit;font-size:inherit;color:inherit}
 .grid .setn{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:var(--ink2);width:34px}
 .grid .prev{font-family:'JetBrains Mono',monospace;font-size:13.5px;color:var(--ink3);width:78px}
 .grid .prev.has{color:var(--ink2)}
-.grid input{width:100%;background:var(--surface);border:1px solid transparent;border-radius:7px;padding:11px 4px;
+.grid input{width:100%;background:var(--surface);border:1px solid transparent;border-radius:0;padding:12px 4px;
   font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:500;text-align:center;outline:none}
 .grid input:focus{border-color:var(--acc);background:var(--raise)}
 .grid input::placeholder{color:#4A4A52}
 .grid .wcell{width:78px}.grid .rcell{width:66px}
-.tick{width:34px;height:34px;border-radius:7px;border:1px solid var(--line2);background:transparent;
+.tick{width:36px;height:36px;border-radius:0;border:1px solid var(--line2);background:transparent;
   color:transparent;cursor:pointer;font-size:15px;font-weight:700;line-height:1}
-.tick.on{background:var(--ok);border-color:var(--ok);color:#0A2617}
+.tick.on{background:var(--ok);border-color:var(--ok);color:#0A2617;animation:pop .18s ease}
+@keyframes pop{0%{transform:scale(.86)}60%{transform:scale(1.06)}100%{transform:scale(1)}}
 tr.set.on .setn{color:var(--ok)}
 tr.set.on input{background:rgba(74,222,128,.07)}
 
@@ -136,7 +137,7 @@ tr.set.on input{background:rgba(74,222,128,.07)}
 .restbar-in{max-width:600px;margin:0 auto;padding:11px 18px;display:flex;align-items:center;gap:14px}
 .restbar .t{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;min-width:64px}
 .restbar .lab{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);flex:1}
-.restbar button{background:transparent;border:1px solid var(--line2);color:var(--ink);border-radius:6px;
+.restbar button{background:transparent;border:1px solid var(--line2);color:var(--ink);border-radius:0;
   padding:8px 12px;font-weight:600;font-size:13px;cursor:pointer}
 .restbar .track{position:absolute;left:0;bottom:0;height:2px;background:var(--acc);transition:width .3s linear}
 
@@ -166,22 +167,22 @@ tr.set.on input{background:rgba(74,222,128,.07)}
 .foot{color:var(--ink3);font-size:12px;line-height:1.7;padding:16px 0 30px}
 
 /* superset + station */
-.ssgroup{border-left:2px solid var(--acc);padding-left:13px;margin:6px 0 0}
+.ssgroup{border-left:1px solid var(--line2);padding-left:15px;margin:6px 0 0}
 .sstag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--acc);font-weight:500;padding:14px 0 2px}
+  color:var(--ink3);font-weight:500;padding:14px 0 2px}
 .sstag span{color:var(--ink3)}
 .station{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--ink3);margin:4px 0 12px}
 .warmrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0 22px}
 .warmrow .l b{font-size:16.5px;font-weight:700;display:block}
 .warmrow .l span{color:var(--ink2);font-size:13.5px}
-.warmrow .tickw{width:34px;height:34px;border-radius:7px;border:1px solid var(--line2);background:transparent;
+.warmrow .tickw{width:36px;height:36px;border-radius:0;border:1px solid var(--line2);background:transparent;
   color:transparent;cursor:pointer;font-size:15px;font-weight:700;flex-shrink:0}
 .warmrow .tickw.on{background:var(--ok);border-color:var(--ok);color:#0A2617}
 .dur{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink3)}
 
 /* form / technique sheet */
-.formb{background:transparent;border:1px solid var(--line2);color:var(--ink2);border-radius:6px;
+.formb{background:transparent;border:1px solid var(--line2);color:var(--ink2);border-radius:0;
   padding:5px 9px;font-size:11.5px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
 .formb:active{border-color:var(--acc);color:var(--acc)}
 .formb svg{width:11px;height:11px;fill:currentColor}
@@ -207,7 +208,7 @@ tr.set.on input{background:rgba(74,222,128,.07)}
 .fs-body ol,.fs-body ul{margin:0;padding-left:0;list-style:none}
 .fs-body li{display:flex;gap:11px;padding:6px 0;font-size:15.5px;line-height:1.45}
 .fs-body li:last-child{border-bottom:0}
-.fs-body li .i{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--acc);flex-shrink:0;padding-top:2px}
+.fs-body li .i{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink3);flex-shrink:0;padding-top:2px}
 .fs-body li.miss .i{color:var(--warn)}
 .fs-body p.tempo{font-size:14.5px;color:var(--ink2);line-height:1.5}
 
@@ -226,11 +227,11 @@ details.more p.tempo{margin-bottom:12px}
 .mbox{background:var(--raise);border-top:1px solid var(--line2);width:100%;max-width:600px;margin:0 auto;
   padding:22px 18px calc(26px + env(safe-area-inset-bottom,0px))}
 .mbox h3{font-size:19px;margin-bottom:16px;font-weight:700}
-.mbox input{width:100%;background:var(--surface);border:1px solid var(--line2);border-radius:8px;
+.mbox input{width:100%;background:var(--surface);border:1px solid var(--line2);border-radius:0;
   padding:16px;font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;text-align:center;outline:none;margin-bottom:14px}
 .mbox input:focus{border-color:var(--acc)}
 .mrow{display:flex;gap:10px}
-.mrow button{flex:1;padding:15px;border-radius:8px;font-weight:700;cursor:pointer;border:1px solid var(--line2);background:transparent}
+.mrow button{flex:1;padding:16px;border-radius:0;font-weight:700;cursor:pointer;border:1px solid var(--line2);background:transparent}
 .mrow .go{background:var(--acc);color:#0C0C0D;border-color:var(--acc)}
 @media(prefers-reduced-motion:reduce){*{transition-duration:.001ms !important}}
 </style>
@@ -250,7 +251,7 @@ details.more p.tempo{margin-bottom:12px}
   <div id="vToday">
     <div class="bar"><div class="wrap bar-in">
       <div class="l"><span class="mk">07</span><span class="ttl" id="topName">Dad's Program</span></div>
-      <button class="ghost" id="btnReset">Reset</button>
+      <span class="eyebrow" id="topWk"></span>
     </div></div>
     <div class="wrap">
       <div class="block" id="todayBlock"></div>
@@ -306,7 +307,7 @@ details.more p.tempo{margin-bottom:12px}
         <div class="rows" id="hRows"></div>
       </div>
       <div class="block">
-        <div class="lbl"><h2>Weigh-ins</h2></div>
+        <div class="lbl"><h2>Weigh-ins</h2><a id="btnReset">Erase all data</a></div>
         <div class="rows" id="wRows"></div>
       </div>
       <div class="foot">&nbsp;</div>
@@ -534,6 +535,7 @@ function stepQ(){
 
 /* ================== TODAY ================== */
 function drawToday(){
+  const _p=plan(); const tw=$("#topWk"); if(tw) tw.textContent=_p.finished?"COMPLETE":`BLOCK ${_p.month+1} / WK ${_p.week}`;
   const p=plan(), m=MONTHS[p.month], d=m.days[p.day];
   cM=p.month; cD=p.day; cW=p.week; planned=true;
   const dt=new Date().toLocaleDateString(undefined,{weekday:'long',day:'numeric',month:'short'});
@@ -554,7 +556,7 @@ function drawToday(){
       </div>
 `;
   $("#preview").innerHTML = d.ex.map(e=>{
-    const tag = /^(B|C)/.test(e[4]||"") ? ` <span style="color:var(--acc);font-size:11px">${e[4]}</span>` : "";
+    const tag = /^(B|C)/.test(e[4]||"") ? ` <span style="color:var(--ink3);font-size:11px">${e[4]}</span>` : "";
     return `<li><span class="t">${e[0]}${tag}</span><span class="n">${e[2]>1?e[2]+" \u00d7 "+e[3]:e[3]}</span></li>`;
   }).join("");
   const mins=estMinutes(p.month,p.day);
@@ -775,7 +777,7 @@ function bind(){
   });
   $("#mIn").addEventListener("keydown",e=>{if(e.key==="Enter")$("#mYes").click()});
   $("#mask").addEventListener("click",e=>{if(e.target.id==="mask")$("#mask").classList.remove("on")});
-  $("#btnReset").addEventListener("click",()=>{
+  const rs=$("#btnReset"); if(rs) rs.addEventListener("click",()=>{
     if(confirm("Erase everything and start over?")){
       try{Object.keys(localStorage).filter(k=>k.startsWith("dad.")).forEach(k=>localStorage.removeItem(k))}catch(e){}
       location.reload();}
